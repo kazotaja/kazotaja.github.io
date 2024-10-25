@@ -36,4 +36,15 @@ window.onload = function() {
             }
         });
     });
+
+    // Close modal when pressing Escape key
+    document.addEventListener('keydown', function(event) {
+        if (event.key === 'Escape') {
+            document.querySelectorAll('.modal').forEach(function(modal) {
+                if (modal.style.display === 'flex') {
+                    closeModal(modal.id);
+                }
+            });
+        }
+    });
 };
