@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Red Bull</title>
+    <style>
+        html, body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow-y: auto;
+            font-family: "Poppins", sans-serif;
+        }
+
+        img, video, object, embed {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Media Grid for Videos */
+        .media-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* Two equal columns for side-by-side videos */
+            gap: 20px;
+            width: 100%;
+            height: 100vh;
+            background: url('images/project1-img2.jpg') no-repeat center center;
+            background-size: cover; /* Background image as fallback */
+            padding: 20px;
+            padding-bottom: 40px; /* Adds padding at the bottom */
+            box-sizing: border-box;
+        }
+
+        /* Video Styling */
+        .media-grid video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Shadow effect */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="media-grid">
+        <!-- Autoplay, loop, muted, and poster image as fallback -->
+        <video autoplay loop muted playsinline poster="images/project1-img2.jpg">
+            <source src="videos/rb/RedBull_Frat_1080x1920px_vertical_clean3---.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+
+        <video autoplay loop muted playsinline poster="images/project2-img2.jpg">
+            <source src="videos/rb/RedBull_Vyrts_11080x1920px_vertical_clean 3_4--.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+</body>
+</html>

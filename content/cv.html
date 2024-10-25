@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kaspar Kaur CV</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            padding: 2rem;
+            background: #f5f5f5;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 2rem;
+            padding: 2rem;
+        }
+
+        header {
+            grid-column: 1 / -1;
+            margin-bottom: 2rem;
+        }
+
+        h1 {
+            margin-bottom: 1rem;
+        }
+
+        h2 {
+            margin: 1.5rem 0 1rem;
+        }
+
+        h3 {
+            margin: 1rem 0 0.5rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        ul {
+            list-style: none;
+            margin-bottom: 1rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        a {
+            color: #2c3e50;
+        }
+
+        .contact {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+            
+            body {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Kaspar Kaur</h1>
+            <div class="contact">
+                <span>01.05.1986</span>
+                <span>+372 5646 2346</span>
+                <a href="mailto:kaspar@statiiv.ee">kaspar@statiiv.ee</a>
+                <a href="http://kazo.work">kazo.work</a>
+                <span>Kuldnoka 9-53, 10619 Tallinn</span>
+            </div>
+        </header>
+
+        <aside>
+            <h2>Software & Skills</h2>
+            
+            <h3>Advanced</h3>
+            <ul>
+                <li>Photoshop</li>
+                <li>Illustrator</li>
+                <li>Dimension</li>
+                <li>Lightroom</li>
+                <li>InDesign</li>
+            </ul>
+
+            <h3>Intermediate</h3>
+            <ul>
+                <li>XD</li>
+                <li>Premiere Pro</li>
+                <li>After Effects</li>
+                <li>Prinect Signa Station</li>
+            </ul>
+
+            <h3>Beginner</h3>
+            <ul>
+                <li>Blender</li>
+                <li>Fusion 360</li>
+                <li>Cinema 4D</li>
+                <li>Figma</li>
+                <li>Sketch</li>
+            </ul>
+        </aside>
+
+        <main>
+            <section>
+                <h2>About Me</h2>
+                <p>I have gained extensive experience in print preparation and design, and I'm now looking to apply those skills in brand development and implementation. Additionally, I have a strong passion for video and motion graphics projects, and I am actively honing my skills in 3D.</p>
+            </section>
+
+            <section>
+                <h2>Work Experience</h2>
+                <h3><a href="https://statiiv.com/">Statiiv</a> | Designer & Photographer</h3>
+                <p>2014 - Present</p>
+                <p>Design, photography, and copywriting services</p>
+
+                <h3><a href="https://www.imagine.ee/">Imagine\TBWA</a> | Designer</h3>
+                <p>2022</p>
+                <p>Design, photography and social media content creation</p>
+
+                <h3><a href="https://taevas.ee/">Taevas Ogilvy</a> | DTP & Designer</h3>
+                <p>2017 - 2022</p>
+                <p>Design and desktop publishing</p>
+            </section>
+
+            <section>
+                <h2>Education</h2>
+                <h3>Tallinn Polytechnic School</h3>
+                <p>2003 - 2004</p>
+                <p>Computer graphics and printing technology</p>
+            </section>
+
+            <section>
+                <h2>Hobbies & Interests</h2>
+                <p>I've volunteered with various NPOs, organized several Tallinn Craft Beer Weekends, launched different Garage48 start-ups, and helped put together numerous music events. I've also worked on an avocado farm, tended bar, and spent years on the stage of the Estonian National Opera. In my free time, I enjoy experimenting with 3D graphics, traveling, and reading.</p>
+            </section>
+        </main>
+    </div>
+</body>
+</html>
