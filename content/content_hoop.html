@@ -5,27 +5,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HOOP</title>
     <link rel="stylesheet" href="style_content.css">
+    <style>
+    .media-grid {
+        display: grid;
+        grid-template-columns: 1fr; /* Default to a single column */
+        gap: 10px;
+        padding: 20px;
+        box-sizing: border-box;
+    }
+    .row-half {
+        display: grid;
+        grid-template-columns: 1fr 1fr; /* Two equal-width columns */
+        gap: 10px;
+    }
+    img {
+        width: 100%; /* Full width of the cell */
+        height: auto; /* Maintain aspect ratio */
+        display: block;
+        border-radius: 10px;
+    }
+    </style>
 </head>
 <body>
-
-    <div class="media-grid" width="100%">
-        <img src="images/hoop/hoop_1.jpg" alt="Project Image 1" width="100%"><br>
-        <img src="images/hoop/hoop_2.jpg" alt="Project Image 1" width="100%"><br>
-        <img src="images/hoop/hoop_3.jpg" alt="Project Image 1" width="100%"><br>
-        <img src="images/hoop/hoop_4.png" alt="Project Image 1" width="100%"><br>
-        <img src="images/hoop/hoop_5.jpg" alt="Project Image 1" width="50%">
-        <img src="images/hoop/hoop_5-2.png" alt="Project Image 1" width="50%"><br>
-
-        <!-- 
-        
-     
-        <video controls>
-            <source src="videos/project1-video.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-        <img src="images/project1-img2.jpg" alt="Project Image 2">
-
-           -->
+    <div class="media-grid">
+        <img src="images/hoop/hoop_1.jpg" alt="Project Image 1">
+        <img src="images/hoop/hoop_2.jpg" alt="Project Image 2">
+        <img src="images/hoop/hoop_3.jpg" alt="Project Image 3">
+        <img src="images/hoop/hoop_4.png" alt="Project Image 4">
+        <div class="row-half">
+            <img src="images/hoop/hoop_5.jpg" alt="Project Image 5">
+            <img src="images/hoop/hoop_5-2.png" alt="Project Image 5-2">
+        </div>
     </div>
 
 </body>

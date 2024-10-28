@@ -9,10 +9,20 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon/favicon-16x16.png">
     <link rel="manifest" href="/images/favicon/site.webmanifest"> 
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" as="style">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap">
     <link rel="stylesheet" href="css/style.css">
     <script src="css/modal.js" defer></script>
-
+    <link rel="prefetch" href="images/logo_lexus_bw.png" as="image">
+    <link rel="prefetch" href="images/logo_alc_bw.png" as="image">
+    <link rel="prefetch" href="images/logo_lidl_bw.png" as="image">
+    <link rel="prefetch" href="images/logo_rb_bw.png" as="image">
+    <link rel="prefetch" href="images/logo_sebe_bw.png" as="image">
+    <link rel="prefetch" href="images/logo_taavi_bw.png" as="image">
+    <link rel="prefetch" href="images/logo_ungru_bw.png" as="image">
+    <link rel="prefetch" href="images/logo_hoop_bw.png" as="image">
 </head>
+
 
 <body>
 
@@ -22,16 +32,16 @@
 <!-- Menu Bar -->
 <div class="menu-bar">
     <div class="logo">kazo.work</div>
+      <!--
     <nav>
-        <!--
         <a href="#" id="cv-link">CV</a>
         <a href="#portfolio">Portfolio</a>
-        <a href="#" id="kontakt-link" class="kontakt-btn">Kontakt</a> -->
+        <button class="button-87" id="kontakt-link" role="button">Contact Me!</button>
     </nav>
+
+     -->
 </div>
 
-
-        <!-- CV Modal -->
     <div id="cv-modal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal('cv-modal')">&times;</span>
@@ -40,7 +50,6 @@
         </div>
     </div>
 
-    <!-- Kontakt Modal -->
     <div id="kontakt-modal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal('kontakt-modal')">&times;</span>
@@ -52,12 +61,11 @@
     <!-- Header Section -->
     <div class="header">
         <video autoplay loop muted playsinline>
-            <source src="videos/masthead_1080px.mp4" type="video/mp4">
+            <source src="videos/masthead_1024px_v4.mp4" type="video/mp4">
             I'm afraid this video is not playing in your browser, for whatever reason. Just imagine the coolest reel you have ever seen and you're halfway there.
         </video>
     </div>
 
-<!-- Portfolio Grid -->
 <div class="portfolio">
     <div class="portfolio-item" onclick="openModal('modal1')">
         <img class="default-img" src="images/logo_lexus_bw.png" alt="Lexus">
@@ -71,7 +79,6 @@
     <div class="portfolio-item" onclick="openModal('modal4')">
         <img class="default-img" src="images/logo_lidl_bw.png" alt="Lidl">
     </div>
-      <!-- 
     <div class="portfolio-item" onclick="openModal('modal5')">
         <img class="default-img" src="images/logo_bass_bw.png" alt="Bassiõhtu">
     </div>
@@ -84,7 +91,6 @@
     <div class="portfolio-item" onclick="openModal('modal8')">
         <img class="default-img" src="images/logo_tcbw_bw.png" alt="TCBW Sessions">
     </div>
-    -->
     <div class="portfolio-item" onclick="openModal('modal9')">
         <img class="default-img" src="images/logo_sebe_bw.png" alt="Sebe">
     </div>
@@ -99,13 +105,11 @@
     </div>
 </div>
 
-    <!-- Modal Structure with Iframe on Left -->
 <div id="modal1" class="modal">
     <div class="modal-content" onclick="event.stopPropagation();">
         <span class="close" onclick="closeModal('modal1')">&times;</span>
         
         <div class="modal-columns">
-            <!-- Left Column: Iframe for Media Content -->
 
             <div class="modal-left">
                 <div class="iframe-wrapper">
@@ -114,10 +118,13 @@
                 </div>
             </div>
 
-            <!-- Right Column: Textual Content -->
             <div class="modal-right">
                 <h2>Lexus Baltics</h2>
                 <p>For five years I had the pleasure to work with Lexus Baltics, creating most of their print and outdoor materials for the Baltic States. That included the recent 2022 Lexus International rebrand.</p>
+                <div class="agency-info">
+                    <span class="agency-label">Agency:</span>
+                    <span class="agency-name"><a href="https://www.taevas.ee" target="_blank">Taevas Ogilvy</a></span>
+                </div>
                 <div class="tag-cloud">
                     <span class="tag">Outdoor</span>
                     <span class="tag">Print</span>
@@ -141,10 +148,15 @@
                 </div>
             </div>
 
-            <!-- Right Column: Textual Content -->
             <div class="modal-right">
                 <h2>A.Le Coq</h2>
                 <p>For a few years I was working for one of the largest beverage manufacturers in the Baltic region, A.Le Coq, focusing mostly on package and print design. The tasks included anything from merch to POS materials. The biggest achievement was probably refreshing and unifying the entire Alexander product line, one of the best-selling beer brands in Estonia.</p>
+
+                <div class="agency-info">
+                    <span class="agency-label">Agency:</span>
+                    <span class="agency-name"><a href="https://www.taevas.ee" target="_blank">Taevas Ogilvy</a></span>
+                </div>
+
                 <div class="tag-cloud">
                     <span class="tag">Packaging</span>
                     <span class="tag">Print</span>
@@ -168,15 +180,21 @@
                 </div>
             </div>
 
-            <!-- Right Column: Textual Content -->
             <div class="modal-right">
                 <h2>Red Bull</h2>
                 <p>I recently had an opportunity to design some display screens for the local Red Bull. It's nothing too fancy, but it moves a little and looks quite cool.</p>
+            
+                <div class="agency-info">
+                    <span class="agency-label">Agency:</span>
+                    <span class="agency-name"><a href="https://www.reflekt.ee/" target="_blank">Reflekt</a></span>
+                </div>
+            
                 <div class="tag-cloud">
                     <span class="tag">Motion graphics</span>
                     <span class="tag">Graphic Design</span>
                 </div>
             </div>
+            
         </div>
     </div>
 </div>
@@ -194,10 +212,14 @@
                 </div>
             </div>
 
-            <!-- Right Column: Textual Content -->
             <div class="modal-right">
                 <h2>Lidl Eesti</h2>
                 <p>For a short period I worked on the social media of Lidl Estonia. My duties mostly involved gpahic design and photography for social media, with some occasional motion graphics project. <br><br<>Pa-pa-pa parim suvi!</p>
+
+                <div class="agency-info">
+                    <span class="agency-label">Agency:</span>
+                    <span class="agency-name"><a href="https://www.imagine.ee" target="_blank">Imagine\TBWA</a></span>
+                </div>
                 <div class="tag-cloud">
                     <span class="tag">Social Media Design</span>
                     <span class="tag">Graphic Design</span>
@@ -223,10 +245,10 @@
                 </div>
             </div>
 
-            <!-- Right Column: Textual Content -->
             <div class="modal-right">
                 <h2>Bassiõhtu</h2>
                 <p>About a decade ago some of my closest friends started an underground event series called Bassiõhtu. Despite the event being quite obscure, they gave me practically free reign to do whatever I saw fit with their graphic design. And boy, did I try anything I could come up with. The project has lasted nearly a decade and I have nothing but fond memories of the whole thing.</p>
+                <div class="spacer"></div>
                 <div class="tag-cloud">
                     <span class="tag">Print Design</span>
                     <span class="tag">Graphic Design</span>
@@ -246,15 +268,14 @@
 
             <div class="modal-left">
                 <div class="iframe-wrapper">
-                    <iframe src="content/content_bass.html" frameborder="0" width="100%" height="100%"></iframe>
-
+                    <iframe src="content/content_sofa.html" frameborder="0" width="100%" height="100%"></iframe>
                 </div>
             </div>
 
-            <!-- Right Column: Textual Content -->
             <div class="modal-right">
                 <h2>Sofa King</h2>
                 <p>Sofa King is an even more obscure modern underground event series. I jumped on the opportunity to design some graphics and visual imagery for them, because they allowed me complete free reign with whatever I wanted to do. It gave me a great opportunity to work on my 3D skills and come up with as engaging imagery as I could.</p>
+                <div class="spacer"></div>
                 <div class="tag-cloud">
                     <span class="tag">Motion Graphics</span>
                     <span class="tag">Graphic Design</span>
@@ -279,10 +300,10 @@
                 </div>
             </div>
 
-            <!-- Right Column: Textual Content -->
             <div class="modal-right">
                 <h2>Speakeasy</h2>
                 <p><a href="http://speakeasy.ee/" target="_blank">Speakeasy</a> was a tiny little plywood bar in Kopli neighborhood, ran by the good folks of <a href="https://pohjalabeer.com/" target="_blank">Põhjala Brewery</a>. It operated sometime between 2014 and 2018 and is now operated by the good folks of <a href="https://www.facebook.com/burgerboxbox/" target=_blank>Burger Box</a>. I had the good luck to design some social media and print materials for the bar back when it was operating. Portfolio-worthy material? You betcha!</p>
+                <div class="spacer"></div>
                 <div class="tag-cloud">
                     <span class="tag">Graphic Design</span>
                     <span class="tag">Social Media Design</span>
@@ -302,14 +323,13 @@
             <div class="modal-left">
                 <div class="iframe-wrapper">
                     <iframe src="content/content_tcbw.html" frameborder="0" width="100%" height="100%"></iframe>
-
                 </div>
             </div>
 
-            <!-- Right Column: Textual Content -->
             <div class="modal-right">
                 <h2>TCBW Sessions</h2>
                 <p>TCBW sessions was a plywood bar special operated in Speakeasy by Põhjala during the Tallinn Craft Beer Weekend. The sole reason I'm including these projects is because of how fun and liberating it was to design something for a project you deeply believe in and to try and help it to have a consistent visual imagery.</p>
+                <div class="spacer"></div>
                 <div class="tag-cloud">
                     <span class="tag">Graphic Design</span>
                     <span class="tag">Social Media Design</span>
@@ -334,10 +354,13 @@
                 </div>
             </div>
 
-            <!-- Right Column: Textual Content -->
             <div class="modal-right">
                 <h2>SEBE</h2>
-                <p>Back in 2013-2014 I had the opportunity to work on the social media design for SEBE, the biggest bus service operator in Estonia. They needed some appealing visuals for social media content and <a href="https://www.sebe.ee/" target="_blank">SEBE</a> brand & design by <a href="https://identity.ee/" target="_blank">Identity</a>.</p>
+                <p>Back in 2013-2014 I had the opportunity to work on the social media design for SEBE, the biggest bus service operator in Estonia. They needed some appealing visuals for social media content. An important thing to note here - back in those days, facebook only allowed for 20% of text on images. So each and every one of the designs needed to adhere to this rule. Go get your rulers - most of them do! <br><br><br> <a href="https://www.sebe.ee/" target="_blank">SEBE</a> brand & design by <a href="https://identity.ee/" target="_blank">Identity</a>.</p>
+                <div class="agency-info">
+                    <span class="agency-label">Agency:</span>
+                    <span class="agency-name"><a href="https://7blaze.com" target="_blank">7Blaze</a></span>
+                </div>
                 <div class="tag-cloud">
                     <span class="tag">Graphic Design</span>
                     <span class="tag">Social Media Design</span>
@@ -361,10 +384,10 @@
                 </div>
             </div>
 
-            <!-- Right Column: Textual Content -->
             <div class="modal-right">
-                <h2>Taavi Peterson & Üdi</h2>
+                <h2>Taavi Peterson <br>& Üdi</h2>
                 <p>Taavi Peterson & Üdi was a very obscure indie band from Estonia founded by a former Estonian Pop Idol contender Taavi Peterson and drummer Risto Piibe. Way back in 2008 I helped them get their debut album "Down Under" designed and printed. Come to think of it, I also did the layout and print preparation for their second album, "Selges eesti keeles" in 2012.</p>
+                <div class="spacer"></div>
                 <div class="tag-cloud">
                     <span class="tag">Graphic Design</span>
                     <span class="tag">Print Design</span>
@@ -388,10 +411,10 @@
                 </div>
             </div>
 
-            <!-- Right Column: Textual Content -->
             <div class="modal-right">
                 <h2>UNGRU Resto & Külalismaja</h2>
                 <p>Back in 2015 I was politely asked by a friend to help design a logo for <a href="http://www.ungrumaja.ee/" target="_blank">Ungru Guesthouse and Restaurant</a> in Hiiumaa. We did the initial logo based on his sketches the same day. The image below shows the initial sketch, the image above shows some handmade lettering and the eventual logo, built around the brilliant <a href="https://www.exljbris.com/museo.html" target="_blank">Museo typeface</a> by Jos Buivenga. Since I never got paid for the gig, it will forever be shamelessly displayed in my portfolio.</p>
+                <div class="spacer"></div>
                 <div class="tag-cloud">
                     <span class="tag">Logo Design</span>
                 </div>
@@ -413,11 +436,11 @@
                 </div>
             </div>
 
-            <!-- Right Column: Textual Content -->
             <div class="modal-right">
                 <h2>HOOP</h2>
                 <p>Hoop was a series of events organized by the <a href="http://www.kelder.ee/" target="_blank">Kelder</a> crew from 2010 to 2011. A moderate surprise, the profits from the events actually helped to raise funds for club reparations. Sadly the crew got too involved with 9-to-5 business, so we were forced to pull the plug on the series. 
                 </p>
+                <div class="spacer"></div>
                 <div class="tag-cloud">
                     <span class="tag">Graphic Design</span>
                     <span class="tag">Logo Design</span>
@@ -429,10 +452,9 @@
     </div>
 </div>
 
-<!-- Footer -->
 <div class="footer">
     <div class="footer-left">
-        &copy; 2024 Kaspar Kaur
+        <p>Made by Kaspar Kaur with some help from ChatGPT</p>
     </div>
     <div class="social-icons">
         <a href="https://www.behance.net/kazo" target="_blank"><img src="images/icns/behance.svg" alt="Behance"></a>

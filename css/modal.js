@@ -1,32 +1,66 @@
-// Open Modal
-function openModal(modalId) {
-    document.getElementById(modalId).style.display = 'flex';
-    document.body.classList.add('no-scroll'); // Prevent background scrolling
-}
-
-// Close Modal
-function closeModal(modalId) {
-    document.getElementById(modalId).style.display = 'none';
-    document.body.classList.remove('no-scroll'); // Allow background scrolling
-}
-
-// Ensure modals are hidden on load
-window.onload = function() {
-    // Hide all modals on page load
+// Immediately hide all modals when the script loads
+document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('.modal').forEach(function(modal) {
-        modal.style.display = "none"; 
+        modal.style.display = "none";
     });
+});
 
+// Track the order of modals
+const modals = document.querySelectorAll('.modal');
+let currentModalIndex = -1;
+
+// Helper function to open a modal by index
+function openModalByIndex(index) {
+    if (index >= 0 && index < modals.length) {
+        if (currentModalIndex >= 0) {
+            closeModal(modals[currentModalIndex].id);
+        }
+        modals[index].style.display = 'flex';
+        document.body.classList.add('no-scroll');
+        currentModalIndex = index;
+    }
+}
+
+// Navigate to the next or previous modal
+function navigateModal(direction) {
+    const newIndex = (currentModalIndex + direction + modals.length) % modals.length;
+    openModalByIndex(newIndex);
+}
+
+// Open and close modals
+function openModal(modalId) {
+    const modalIndex = Array.from(modals).findIndex(modal => modal.id === modalId);
+    if (modalIndex !== -1) openModalByIndex(modalIndex);
+}
+
+function closeModal(modalId) {
+    const modal = document.getElementById(modalId);
+    if (modal) {
+        modal.style.display = 'none';
+        document.body.classList.remove('no-scroll');
+        currentModalIndex = -1;
+    }
+}
+
+// Event listener setup after DOM is fully loaded
+window.onload = function() {
     // Adding event listeners for the CV and Kontakt buttons
-    document.getElementById('cv-link').addEventListener('click', function(e) {
-        e.preventDefault();
-        openModal('cv-modal');
-    });
+    const cvLink = document.getElementById('cv-link');
+    const kontaktLink = document.getElementById('kontakt-link');
 
-    document.getElementById('kontakt-link').addEventListener('click', function(e) {
-        e.preventDefault();
-        openModal('kontakt-modal');
-    });
+    if (cvLink) {
+        cvLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            openModal('cv-modal');
+        });
+    }
+
+    if (kontaktLink) {
+        kontaktLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            openModal('kontakt-modal');
+        });
+    }
 
     // Close modal when clicking outside of modal content
     document.querySelectorAll('.modal').forEach(modal => {
@@ -37,14 +71,16 @@ window.onload = function() {
         });
     });
 
-    // Close modal when pressing Escape key
+    // Keyboard navigation for modals
     document.addEventListener('keydown', function(event) {
-        if (event.key === 'Escape') {
-            document.querySelectorAll('.modal').forEach(function(modal) {
-                if (modal.style.display === 'flex') {
-                    closeModal(modal.id);
-                }
-            });
+        if (currentModalIndex >= 0) {
+            if (event.key === 'ArrowRight') {
+                navigateModal(1); // Navigate to the next modal
+            } else if (event.key === 'ArrowLeft') {
+                navigateModal(-1); // Navigate to the previous modal
+            } else if (event.key === 'Escape') {
+                closeModal(modals[currentModalIndex].id); // Close the current modal
+            }
         }
     });
 };
