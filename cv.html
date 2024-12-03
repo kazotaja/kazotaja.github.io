@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My CV</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+:root {
+--primary-color-text: #fff;
+--primary-color-link: #fd2435;
+--primary-color-bg: #000000;
+--primary-color-shadow: #111111;
+--primary-color-textbox: gray;
+}
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+font-family: 'Poppins', Arial, sans-serif;
+font-weight: 600;
+}
+body {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 1rem;
+padding: 20px;
+color: var(--primary-color-text);
+line-height: 1.5;
+backdrop-filter: blur(5px);
+overflow: hidden;
+}
+a {
+text-decoration: none;
+color: var(--primary-color-text);
+transition: background-color 0.3s, color 0.3s;
+}
+a:hover {
+background-color: var(--primary-color-link);
+color: var(--primary-color-shadow);
+border-radius: 2px;
+}
+a:visited {
+color: inherit;
+background-color: transparent;
+}
+section {
+padding: 1rem;
+background: var(--primary-color-bg);
+border-radius: 8px;
+}
+h1, h2, h3 {
+font-weight: 600;
+margin-bottom: 0.5rem;
+}
+h1 {
+font-size: 4em;
+line-height: 1.0;
+}
+h2 {
+font-size: 1.5em;
+line-height: 1.2;
+color: var(--primary-color-link);
+}
+h3 {
+font-size: 0.9em;
+font-weight: 200;
+margin-top: 10px;
+}
+p {
+font-weight: 200;
+font-size: 12px;
+color: var(--primary-color-textbox);
+}
+.skill-box {
+padding: 1rem;
+background-color: var(--primary-color-shadow);
+color: var(--primary-color-text);
+border-radius: 10px;
+line-height: 1.5;
+}
+.skill-box h3 {
+font-size: 1.2em;
+color: var(--primary-color-link);
+margin-bottom: 0.5rem;
+font-weight: inherit;
+}
+.skill-box ul {
+list-style-type: none;
+padding: 0;
+}
+.skill-box ul li {
+margin-bottom: 1rem;
+font-size: 0.8em;
+font-weight: 100;
+color: var(--primary-color-textbox);
+}
+.contact-button {
+margin-top: 20px;
+display: inline-block;
+width: 100%;
+box-sizing: border-box;
+padding: 10px 20px;
+font-size: 16px;
+font-weight: 700;
+color: #fff;
+border: 1px solid #fff;
+border-radius: 6px;
+background-color: transparent;
+text-align: center;
+text-decoration: none;
+transition: all 0.3s ease-in-out;
+cursor: pointer;
+}
+.contact-button:hover {
+padding: 10px 20px;
+background-color: #fff;
+color: #000;
+border-color: #fff;
+border-radius: 6px;
+}
+.container {
+display: flex;
+flex-direction: column;
+justify-content: flex-start;
+height: auto;
+}
+.item {
+padding: 0px;
+flex-shrink: 0;
+}
+.filler {
+flex-grow: 0.5;
+}
+.skill-box {
+overflow-y: auto;
+}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="item">
+      <section id="name">
+        <h1>Kaspar Kaur</h1>
+        <h2>Graphic Designer</h2>
+        <p>
+          I am an experienced graphic designer with a deep passion for brand development, creative solutions, and dynamic visuals.
+          My background includes print design and I'm now expanding into video, motion graphics, and 3D animation.
+        </p>
+      </section>
+    </div>
+  
+    <div class="filler"></div> <!-- This element will take up all available space -->
+  
+    <div class="item">
+      <section class="skill-box">
+        <h3>Software Skills</h3>
+        <ul>
+          <li><strong>Advanced: </strong>Photoshop, Illustrator, InDesign, Lightroom, Dimension, Acrobat Pro, Prinect Signa Station</li>
+          <li><strong>Intermediate: </strong>Premiere, After Effects, Adobe XD, Figma</li>
+          <li><strong>Beginner: </strong> Blender, Autodesk Fusion 360</li>
+        </ul>
+      </section>
+    </div>
+  
+    <div class="filler"></div> <!-- This element will also take up all available space -->
+  
+    <div class="item">
+      <section>
+        <h2>Contact</h2>
+        <h3>Phone: +372 5646 2346</h3>
+        <h3>kaspar (at) statiiv (dot) ee</h3>
+        <a href="files/CV_KasparKaur_en.pdf" class="contact-button">Download CV</a>
+      </section>
+    </div>
+  </div>
+
+  <section id="work">
+    <h2>Work Experience</h2>
+    <div>
+      <h3><a href="http://www.statiiv.com" target="_blank">Statiiv</a></h3>
+      <p>Graphic design, photography, and copywriting services</p>
+      <p>2014 - Present</p>
+    </div>
+    <div>
+      <h3><a href="http://www.imagine.ee" target="_blank">Imagine\TBWA</a></h3>
+      <p>Design, photography, and social media content creation</p>
+      <p>2022</p>
+    </div>
+    <div>
+      <h3><a href="http://www.taevas.ee" target="_blank">Taevas Ogilvy</a></h3>
+      <p>Design and desktop publishing</p>
+      <p>2017 - 2022</p>
+    </div>
+    <div>
+      <h3><a href="http://www.coprint.ee" target="_blank">CoPrint</a></h3>
+      <p>Print preparation, layout design, and graphic design</p>
+      <p>2015 - 2016</p>
+    </div>
+    <div>   
+      <h3><a href="http://www.7blaze.com" target="_blank">7Blaze</a></h3>
+      <p>Design of web campaigns and applications</p>
+      <p>2013 - 2014</p>
+    </div>
+    <div>   
+      <h3><a href="http://www.actual.ee" target="_blank">Actual Print</a></h3>
+      <p>Print preparation, layout design, and graphic design</p>
+      <p>2010 - 2012</p>
+    </div>
+    <div>  
+      <h3><a href="https://epl.delfi.ee/" target="_blank">Eesti Päevaleht</a></h3>
+      <p>Layout design and photo editing</p>
+      <p>2007</p>
+    </div>
+    <div>
+      <h3><a href="https://www.dataplate.ee/" target="_blank">Data Plate</a></h3>
+      <p>Digital print file preparation, layout design for flexographic print plates</p>
+      <p>2006 - 2007</p>
+    </div>
+  </section>
+  
+  <section id="education">
+    <h2>Education</h2>
+    <div>
+      <h3><a href="#">Tallinn Polytechnic School</a></h3>
+      <p>Computer graphics and printing technology.</p>
+      <p>2003 - 2004</p>
+    </div>
+    <div>
+      <h3><a href="#">Sõle Gymnasium (Secondary School)</a></h3>
+      <p>2002 - 2003</p>
+    </div>
+    <div>
+      <h3><a href="#">Tallinn Music High School</a></h3>
+      <p>Minor in piano, French horn and tuba</p>
+      <p>1993 - 2002</p>
+      <br>
+    </div>
+    <h2>Additional Training</h2>
+    <div>
+      <h3><a href="https://www.tktk.ee/en/" target="_blank">TTK University of Applied Sciences</a></h3>
+      <p>Web Development - From Figma Prototype to Published Project</p>
+      <p>2024</p>
+
+    </div>
+    <div>
+      <h3><a href="https://pallasart.ee/en" target="_blank">Pallas University of Applied Sciences</a></h3>
+      <p>3D Modelling and Printing</p>
+      <p>2024</p>
+
+    </div>
+    <div>
+      <h3><a href="https://en.voco.ee/" target="_blank">Tartu Vocational College</a></h3>
+      <p>Basic Training for a Start-Up Entrepreneur</p>
+      <p>2024</p>
+
+    </div>
+    <div>
+      <h3><a href="https://nordickoolitus.ee/en" target="_blank">Nordic Training</a></h3>
+      <p>3D Visuals with Blender Freeware</p>
+      <p>2023</p>
+
+    </div>
+    <div>
+      <h3><a href="https://www.tlu.ee/en/haapsalu" target="_blank">Tallinn University Haapsalu College</a></h3>
+      <p>Product and Package Design and Preparation in Fusion 360</p>
+      <p>2023</p>
+
+    </div>
+    <div>
+      <h3><a href="https://www.tptlive.ee/" target="_blank">Tallinn Polytechnic School</a></h3>
+      <p>Prepress I & II (Curriculum)</p>
+      <p>2018</p>
+
+    </div>
+  </section>
+  
+</body>
+</html>

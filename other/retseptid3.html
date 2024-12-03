@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipes</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: grid;
+            place-items: center;
+            background-color: #f4f4f4;
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .recipe {
+            margin-bottom: 20px;
+        }
+        h1 {
+            font-size: 1.5em;
+            cursor: pointer;
+            background-color: #007BFF;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        h1:hover {
+            background-color: #0056b3;
+        }
+        .content {
+            display: none;
+            overflow: hidden;
+            padding: 10px;
+            border-left: 3px solid #007BFF;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Left Column -->
+        <div>
+            <div class="recipe">
+                <h1 onclick="toggleContent(this)">Supreme Pizza</h1>
+                <div class="content">
+                    <ul>
+                        <li>120g water</li>
+                        <li>0.4 tbsp yeast</li>
+                        <li>Pinch of sugar</li>
+                        <li>172g flour</li>
+                        <li>0.5 tbsp oil</li>
+                        <li>0.4 tsp salt</li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Add more recipes here -->
+        </div>
+
+        <!-- Right Column -->
+        <div>
+            <div class="recipe">
+                <h1 onclick="toggleContent(this)">Supreme Pizza Instructions</h1>
+                <div class="content">
+                    <ol>
+                        <li>Mix water, yeast, and sugar. Let it sit until foamy.</li>
+                        <li>Add flour, oil, and salt. Knead into dough.</li>
+                        <li>Let the dough rise for 1 hour.</li>
+                        <li>Roll and top with desired ingredients.</li>
+                        <li>Bake at 200°C (400°F) until crust is golden brown.</li>
+                    </ol>
+                </div>
+            </div>
+            <!-- Add more recipes here -->
+        </div>
+    </div>
+
+    <script>
+        function toggleContent(element) {
+            const content = element.nextElementSibling;
+            content.style.display = content.style.display === "block" ? "none" : "block";
+        }
+    </script>
+</body>
+</html>

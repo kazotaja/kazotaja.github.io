@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipes</title>
+    <style>
+        .content {
+            display: none;
+            padding: 10px;
+            border: 1px solid #ccc;
+            margin-top: 5px;
+        }
+        .headline {
+            cursor: pointer;
+            background-color: #f1f1f1;
+            padding: 10px;
+            border: 1px solid #ccc;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="headline" onclick="toggleContent('contentSupremePizza')">Supreme Pizza</div>
+    <div id="contentSupremePizza" class="content">
+        <p>Taigen</p>
+        <ul>
+            <li>120 grammi leiget vett</li>
+            <li>0,4 supilusikat pärmi</li>
+            <li>näpuotsatäis suhkrut</li>
+            <li>172g jahu</li>
+            <li>0,5 supilusikat õli</li>
+            <li>0,4 teelusikat soola</li>
+        </ul>
+        <p>SL= supilusku, TL= teelusku</p>
+    </div>
+
+    <div class="headline" onclick="toggleContent('contentPannkoogid')">Pannkoogid</div>
+    <div id="contentPannkoogid" class="content">
+        <ul>
+            <li>5dl vett või piima</li>
+            <li>3dl nisujahu</li>
+            <li>2 muna</li>
+            <li>sool, suhkur</li>
+        </ul>
+    </div>
+
+    <div class="headline" onclick="toggleContent('contentKanaKuskussisalat')">Kana-Kuskussisalat</div>
+    <div id="contentKanaKuskussisalat" class="content">
+        <ul>
+            <li>frillis 1</li>
+            <li>paprika 2</li>
+            <li>punane sibul 1</li>
+            <li>kuskuss</li>
+            <li>või</li>
+            <li>kana 250g</li>
+            <li>kreeka jogurt (3/4 pakist)</li>
+            <li>feta (3/4 pakist)</li>
+        </ul>
+        <p>Instructions: Alusta juurviljadest. Pese frillis, paprikad ja 1 pun sibul, haki ja pane kaussi. Prae kogu kana ja sega teiste ainetega.</p>
+    </div>
+
+    <div class="headline" onclick="toggleContent('contentGemuse')">Gemüse</div>
+    <div id="contentGemuse" class="content">
+        <ul>
+            <li>hakkliha veise 400g</li>
+            <li>sibul 1tk</li>
+            <li>neli küüslauguküünt</li>
+            <li>kartul 700g</li>
+            <li>tomatipasta 200g</li>
+            <li>hapukoor 2sl</li>
+        </ul>
+        <p>Instructions: Chop sibul and küüslauk, fry, add hakkliha and kartul, simmer for 15min.</p>
+    </div>
+
+    <div class="headline" onclick="toggleContent('contentMakaronidHakklihaga')">Makaronid hakklihaga</div>
+    <div id="contentMakaronidHakklihaga" class="content">
+        <ul>
+            <li>Täistera makaronid</li>
+            <li>Veise hakkliha</li>
+            <li>Sibul</li>
+            <li>Küüslauk</li>
+            <li>1-2 porgandit (riivitult)</li>
+            <li>Riivjuustu</li>
+        </ul>
+    </div>
+
+    <div class="headline" onclick="toggleContent('contentCreamyTarragonChicken')">Creamy Tarragon Chicken</div>
+    <div id="contentCreamyTarragonChicken" class="content">
+        <ul>
+            <li>3 chicken breasts</li>
+            <li>1/4 cup flour</li>
+            <li>1 tbsp olive oil</li>
+            <li>1 large shallot</li>
+            <li>1/2 cup fennel</li>
+            <li>1 garlic clove</li>
+            <li>1/2 cup chicken stock</li>
+            <li>1/2 cup heavy cream</li>
+            <li>1.5 tbsp fresh tarragon</li>
+            <li>pinch salt and pepper</li>
+        </ul>
+        <p>Instructions: Pat the chicken dry, dredge in flour, cook, then prepare the sauce with shallots and fennel.</p>
+    </div>
+
+    <div class="headline" onclick="toggleContent('contentPastaCarbonara')">Pasta Carbonara</div>
+    <div id="contentPastaCarbonara" class="content">
+        <ul>
+            <li>Grana Padano</li>
+            <li>Pecorino Romano</li>
+            <li>2 eggs</li>
+            <li>spaghetti nr 5</li>
+            <li>guanciale or bacon</li>
+            <li>olive oil</li>
+            <li>black pepper</li>
+        </ul>
+    </div>
+
+    <div class="headline" onclick="toggleContent('contentCacioEPepe')">Cacio e pepe</div>
+    <div id="contentCacioEPepe" class="content">
+        <ul>
+            <li>2 tsp black peppercorns</li>
+            <li>200g spaghetti</li>
+            <li>80g pecorino romano</li>
+        </ul>
+    </div>
+
+    <div class="headline" onclick="toggleContent('contentKooreneKanapasta')">Koorene kanapasta</div>
+    <div id="contentKooreneKanapasta" class="content">
+        <ul>
+            <li>400 g Kanafilee</li>
+            <li>400 g Penne</li>
+            <li>350 ml vahukoor (vegan)</li>
+            <li>150 g Riivitud juust</li>
+            <li>Kanamaitseaine</li>
+            <li>Basiilik</li>
+        </ul>
+    </div>
+
+    <div class="headline" onclick="toggleContent('contentPorgandiHakklihagaTatrapuder')">Porgandi ja hakklihaga tatrapuder</div>
+    <div id="contentPorgandiHakklihagaTatrapuder" class="content">
+        <ul>
+            <li>5 dl vett</li>
+            <li>200 g tatart</li>
+            <li>0,5 tl soola</li>
+            <li>1 suurem porgand</li>
+            <li>200 g hakklihasegu</li>
+            <li>1 sl värskelt hakitud tilli</li>
+            <li>1 sl röstsibulat</li>
+            <li>1 sl võid</li>
+            <li>soola, pipart</li>
+        </ul>
+        <p>Instructions: Boil water, rinse and cook the buckwheat, fry the minced meat, and mix everything together.</p>
+    </div>
+
+    <div class="headline" onclick="toggleContent('contentPakChoiAasiaMood')">Pak choi Aasia moodi</div>
+    <div id="contentPakChoiAasiaMood' class="content">
+        <ul>
+            <li>250 g pak choi</li>
+            <li>1 pressitud küüslauguküüs</li>
+            <li>1 tl riivitud ingverit</li>
+            <li>1 spl õli</li>
+            <li>½ tl seesamiõli</li>
+            <li>2 tl Jaapani soja</li>
+            <li>seesamiseemneid (röstitud)</li>
+        </ul>
+        <p>Instructions: Fry the pak choi leaves with garlic and ginger until soft, add soy and sesame oil.</p>
+    </div>
+
+    <script>
+        function toggleContent(id) {
+            const content = document.getElementById(id);
+            content.style.display = content.style.display === "block" ? "none" : "block";
+        }
+    </script>
+
+</body>
+</html>

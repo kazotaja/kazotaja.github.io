@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kaspar Kaur - Graphic Designer</title>
+<style>
+  /* Basic reset and font styling */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif; /* Replace with custom font if needed */
+  }
+  body {
+    display: grid;
+    grid-template-columns: 1fr 2fr 2fr 1fr;
+    gap: 1rem;
+    padding: 20px;
+    color: #333;
+    line-height: 1.5;
+  }
+
+  /* General section styling */
+  section {
+    padding: 1rem;
+    background: #f9f9f9;
+    border-radius: 8px;
+  }
+
+  h1, h2, h3 {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+
+  h1 { font-size: 1.8em; }
+  h2 { font-size: 1.5em; }
+  h3 { font-size: 1.2em; }
+
+  /* Grid for the entire layout */
+  #name {
+    grid-column: 1 / 2;
+  }
+
+  #work {
+    grid-column: 2 / 3;
+  }
+
+  #education {
+    grid-column: 3 / 4;
+  }
+
+  #contact {
+    grid-column: 4 / 5;
+  }
+
+  /* Styling for download button */
+  .download-btn {
+    display: inline-block;
+    padding: 0.5em 1em;
+    color: #fff;
+    background-color: #333;
+    border-radius: 4px;
+    text-decoration: none;
+    margin-top: 10px;
+  }
+
+  /* Section-specific styling */
+  .sub-section {
+    margin-bottom: 1rem;
+  }
+
+  .sub-section h3 {
+    color: #666;
+  }
+
+  .content-item {
+    margin-bottom: 0.8rem;
+  }
+</style>
+</head>
+<body>
+
+<!-- Column 1: Name and About Me -->
+<section id="name">
+  <h1>Kaspar Kaur</h1>
+  <h2>Graphic Designer</h2>
+  <p>I am an experienced graphic designer with a deep passion for brand development, creative solutions, and dynamic visuals. My background includes print design and I'm now expanding into video, motion graphics, and 3D animation.</p>
+  <a href="kaspar-kaur-cv.pdf" class="download-btn" download>Download CV</a>
+</section>
+
+<!-- Column 2: Work Experience -->
+<section id="work">
+  <h2>Work Experience</h2>
+  <div class="sub-section">
+    <h3>Statiiv | Designer & Photographer</h3>
+    <p>2014 - Present<br>Design, photography, and copywriting services.</p>
+  </div>
+  <div class="sub-section">
+    <h3>Imagine\TBWA | Designer</h3>
+    <p>2022<br>Design, photography, and social media content creation.</p>
+  </div>
+  <div class="sub-section">
+    <h3>Taevas Ogilvy | DTP & Designer</h3>
+    <p>2017 - 2022<br>Design and desktop publishing.</p>
+  </div>
+  <!-- Add additional work experience similarly -->
+</section>
+
+<!-- Column 3: Education and Additional Training -->
+<section id="education">
+  <h2>Education</h2>
+  <div class="sub-section">
+    <h3>Tallinn Polytechnic School</h3>
+    <p>2003 - 2004<br>Computer graphics and printing technology</p>
+  </div>
+  <div class="sub-section">
+    <h3>Sõle Gymnasium</h3>
+    <p>2002 - 2003</p>
+  </div>
+  <h2>Additional Training</h2>
+  <div class="sub-section">
+    <h3>Website Development | TTK University of Applied Sciences</h3>
+    <p>2024<br>From Figma prototype to published project.</p>
+  </div>
+  <!-- Add additional trainings similarly -->
+</section>
+
+<!-- Column 4: Contact & Links -->
+<section id="contact">
+  <h2>Contact</h2>
+  <div class="content-item">
+    <strong>Phone:</strong> +372 5646 2346
+  </div>
+  <div class="content-item">
+    <strong>Email:</strong> <a href="mailto:kaspar@statiiv.ee">kaspar@statiiv.ee</a>
+  </div>
+  <div class="content-item">
+    <strong>Website:</strong> <a href="http://www.kazo.work">www.kazo.work</a>
+  </div>
+  <div class="content-item">
+    <strong>Address:</strong> Kuldnoka 9-53, 10619 Tallinn
+  </div>
+</section>
+
+</body>
+</html>

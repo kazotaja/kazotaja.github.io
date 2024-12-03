@@ -4,32 +4,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio of Kaspar Kaur</title>
+    <meta name="description" content="Kaspar Kaur's portfolio showcasing creative projects and designs.">
+    <meta property="og:title" content="kazo.work">
+    <meta property="og:description" content="Portfolio of Kaspar Kaur">
+    <meta property="og:image" content="https://kazo.work/images/web_thumbnail.png">
+    <meta property="og:url" content="https://kazo.work/">
+    <meta property="og:type" content="website">
+    <title>Selected Works of Kaspar Kaur</title>
     <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon/favicon-16x16.png">
-    <link rel="manifest" href="/images/favicon/site.webmanifest"> 
+    <link rel="manifest" href="/images/favicon/site.webmanifest">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cloud.umami.is">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="preconnect" href="https://cloud.umami.is">
-    <script defer src="https://cloud.umami.is/script.js" data-website-id="6d967e30-1a55-4e41-97a5-361e710a921a"></script>
-    <script defer src="css/modal.js"></script>
+    <link rel="preload" href="videos/masthead_720p_low.mp4" as="video" type="video/mp4" crossorigin="anonymous">
+    <link rel="preload" href="videos/tiny.jpg" as="image">
 </head>
 
 <body>
 
-<div class="menu-bar">
-    <div class="logo">kazo.work</div>
-    <!--
-    <nav>
-        <a href="#" id="cv-link">CV</a>
-        <a href="#portfolio">Portfolio</a>
-        <button class="button-87" id="kontakt-link" role="button">Contact Me!</button>
-    </nav> 
-    -->
-</div>
+    <div class="menu-bar">
+        <div class="menu-bar-logo">Selected Works of <b>Kaspar Kaur</b></div>
+        <nav>
+            <button class="button-87" id="cv-link" role="button">
+                Grab my CV!
+            </button>
+        </nav>
+    </div>
+
     <!--
 
     <div id="cv-modal" class="modal">
@@ -39,6 +44,8 @@
             <p>This is where my CV content should be. Except i want it to be either an iframe or somekind of cool jQuery script and I'm yet to get to it.</p>
         </div>
     </div>
+
+        
 
     <div id="kontakt-modal" class="modal">
         <div class="modal-content">
@@ -50,8 +57,9 @@
     -->
 
     <div class="header">
-        <video autoplay loop muted playsinline>
-            <source src="videos/masthead_1024px_v4.mp4" type="video/mp4">
+        <img src="videos/large.jpg" class="video-placeholder" alt="Video placeholder">
+        <video autoplay loop muted playsinline class="header-video" id="headerVideo">
+            <source src="videos/masthead_720p_low.mp4" type="video/mp4" data-highres="videos/masthead_1080p_high.mp4">
             I'm afraid this video is not playing in your browser, for whatever reason. Just imagine the coolest reel you have ever seen and you're halfway there.
         </video>
     </div>
@@ -60,12 +68,14 @@
     <div class="portfolio-item" onclick="openModal('modal1')">
         <img class="default-img" src="images/logo_lexus_bw.png" alt="Lexus">
     </div>
+     <!--
     <div class="portfolio-item" onclick="openModal('modal2')">
         <img class="default-img" src="images/logo_alc_bw.png" alt="A.Le Coq">
     </div>
+     -->
     <div class="portfolio-item" onclick="openModal('modal3')">
         <img class="default-img" src="images/logo_rb_bw.png" alt="Red Bull">
-    </div>
+    </div>    
     <div class="portfolio-item" onclick="openModal('modal4')">
         <img class="default-img" src="images/logo_lidl_bw.png" alt="Lidl">
     </div>
@@ -92,6 +102,13 @@
     </div>
     <div class="portfolio-item" onclick="openModal('modal12')">
         <img class="default-img" src="images/logo_hoop_bw.png" alt="HOOP">
+    </div>
+</div>
+
+<div id="cv-modal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('cv-modal')">&times;</span>
+        <iframe src="cv.html" width="100%" height="100%"></iframe>
     </div>
 </div>
 
@@ -373,7 +390,7 @@
 
             <div class="modal-right">
                 <h2>HOOP</h2>
-                <p>Hoop was a series of events organized by the <a href="http://www.kelder.ee/" target="_blank">Kelder</a> crew from 2010 to 2011. In a bit of a surprise, the profits actually helped raise funds for club repairs. Unfortunately, the team got too busy with 9-to-5 commitments, and with the venue’s demolition, we had to pull the plug on the series.</p>
+                <p>Hoop was a series of events organized by the <a href="http://www.kelder.ee/" target="_blank">Kelder</a> crew from 2010 to 2011. In a bit of a surprise, the profits actually helped raise funds for club repairs. Unfortunately, the team got too busy with 9-to-5 commitments, and with the venue's demolition, we had to pull the plug on the series.</p>
                 <div class="spacer"></div>
                 <div class="tag-cloud">
                     <span class="tag">Graphic Design</span>
@@ -401,6 +418,9 @@
         <a href="https://www.flickr.com/photos/61602112@N00" target="_blank"><img src="images/icns/flickr.svg" alt="Flickr"></a>
     </div>
 </div>
+
+<script defer src="https://cloud.umami.is/script.js" data-website-id="6d967e30-1a55-4e41-97a5-361e710a921a"></script>
+<script defer src="css/modal.js"></script>
 
 </body>
 

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Collection</title>
+    <style>
+        /* Basic styling for collapsible sections */
+        summary {
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 1.1em;
+            margin-top: 10px;
+            padding: 5px;
+            background-color: #f0f0f0;
+            border-radius: 4px;
+        }
+        
+        details {
+            margin: 10px 0;
+            padding: 5px;
+        }
+
+        /* Checkbox styled bullets */
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        ul li {
+            position: relative;
+            padding-left: 30px; /* Space for the checkbox */
+            margin-bottom: 8px;
+        }
+
+        ul li::before {
+            content: "";
+            position: absolute;
+            top: 2px;
+            left: 0;
+            width: 20px;
+            height: 20px;
+            background-color: #ffffff;
+            border: 2px solid #007acc;
+            border-radius: 4px;
+        }
+
+        ul li.checked::before {
+            background-color: #007acc;
+            background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16"%3E%3Cpath fill="white" d="M9 16.2l-4.2-4.2-1.4 1.4L9 19 20.6 7.4l-1.4-1.4z"/%3E%3C/svg%3E');
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Recipe Collection</h1>
+
+<details>
+    <summary>Supreme Pizza</summary>
+    <ul>
+        <li>120g water</li>
+        <li>0.4 tbsp yeast</li>
+        <li>Pinch of sugar</li>
+        <li>172g flour</li>
+        <li>0.5 tbsp oil</li>
+        <li>0.4 tsp salt</li>
+    </ul>
+</details>
+
+<details>
+    <summary>Pancakes</summary>
+    <ul>
+        <li>5dl water or milk</li>
+        <li>3dl wheat flour</li>
+        <li>2 eggs</li>
+        <li>Salt, sugar</li>
+    </ul>
+</details>
+
+<details>
+    <summary>Chicken Couscous Salad</summary>
+    <ul>
+        <li>1 head frisée</li>
+        <li>2 bell peppers</li>
+        <li>1 red onion</li>
+        <li>Couscous</li>
+        <li>250g chicken</li>
+        <li>Greek yogurt (3/4 package)</li>
+        <li>Feta cheese (3/4 package)</li>
+    </ul>
+</details>
+
+<details>
+    <summary>Gemüse</summary>
+    <ul>
+        <li>400g ground beef</li>
+        <li>1 onion</li>
+        <li>4 cloves garlic</li>
+        <li>700g potatoes, cubed</li>
+        <li>200g tomato paste</li>
+        <li>2 tbsp sour cream</li>
+    </ul>
+</details>
+
+<!-- Add more recipes in similar fashion -->
+
+</body>
+</html>

@@ -9,6 +9,26 @@ document.addEventListener('DOMContentLoaded', function() {
 const modals = document.querySelectorAll('.modal');
 let currentModalIndex = -1;
 
+window.addEventListener('load', function() {
+    const videoElement = document.getElementById('headerVideo');
+    const sourceElement = videoElement.querySelector('source');
+
+    if (videoElement && sourceElement) {
+        const highResSrc = sourceElement.getAttribute('data-highres');
+        if (highResSrc) {
+            videoElement.addEventListener('loadeddata', () => {
+                document.querySelector('.video-placeholder').style.display = 'none';
+                videoElement.style.display = 'block';
+                videoElement.classList.add('loaded');
+            });
+
+            // Load the high-res video
+            sourceElement.src = highResSrc;
+            videoElement.load();
+        }
+    }
+});
+
 // Helper function to open a modal by index
 function openModalByIndex(index) {
     if (index >= 0 && index < modals.length) {
