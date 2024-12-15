@@ -224,6 +224,17 @@ transition: box-shadow 0.3s ease, transform 0.3s ease;
 transform: scale(1.1);
 box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
 }
+#modal-overlay {
+display: none;
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background-color: rgba(0, 0, 0, 0.7);
+z-index: 999;
+backdrop-filter: blur(5px);
+}
 .modal {
 display: none;
 position: fixed;
@@ -414,7 +425,6 @@ width: 100%;
 height: 100%;
 object-fit: cover;
 }
-
 @media (max-width: 768px) {
 .header {
 width: 90%;
@@ -452,4 +462,8 @@ justify-content: center;
 width: 20px;
 height: 20px;
 }
+}
+@media (min-width: 2048px)
+{
+.portfolio {grid-template-columns: repeat(4, minmax(300px, 1fr)); }
 }

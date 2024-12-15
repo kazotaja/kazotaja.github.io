@@ -20,8 +20,11 @@
     <link rel="preconnect" href="https://cloud.umami.is">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="preload" href="videos/masthead_720p_low.mp4" as="video" type="video/mp4" crossorigin="anonymous">
     <link rel="preload" href="videos/tiny.jpg" as="image">
+    <link rel="preload" href="videos/large.jpg" as="image">
+    <link rel="preload" href="videos/masthead_720p_low.webm" as="video" type="video/mp4" crossorigin="anonymous">
+    <link rel="preload" href="videos/masthead_720p_low.mp4" as="video" type="video/mp4" crossorigin="anonymous">
+    <script defer src="css/modal.js"></script>
 </head>
 
 <body>
@@ -35,34 +38,20 @@
         </nav>
     </div>
 
-    <!--
-
-    <div id="cv-modal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal('cv-modal')">&times;</span>
-            <h2>CV</h2>
-            <p>This is where my CV content should be. Except i want it to be either an iframe or somekind of cool jQuery script and I'm yet to get to it.</p>
-        </div>
-    </div>
-
-        
-
-    <div id="kontakt-modal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal('kontakt-modal')">&times;</span>
-            <h2>Kontakt</h2>
-            <p>My phone? My e-mail? You don't need to know these. All you need is Zuul. Only Zuul.</p>
-        </div>
-    </div> 
-    -->
-
     <div class="header">
         <img src="videos/large.jpg" class="video-placeholder" alt="Video placeholder">
-        <video autoplay loop muted playsinline class="header-video" id="headerVideo">
+        <video autoplay loop muted playsinline class="header-video" id="headerVideo" oncanplay="this.style.opacity=1;" style="opacity: 0; transition: opacity 0.5s;">
+
+            <!-- WebM fallback for modern browsers -->
+            <source src="videos/masthead_720p_low.webm" type="video/webm" data-highres="videos/masthead_1080p_high.webm">
+            <!-- MP4 fallback for older browsers -->
             <source src="videos/masthead_720p_low.mp4" type="video/mp4" data-highres="videos/masthead_1080p_high.mp4">
+            
             I'm afraid this video is not playing in your browser, for whatever reason. Just imagine the coolest reel you have ever seen and you're halfway there.
         </video>
     </div>
+
+<div id="modal-overlay"></div>
 
 <div class="portfolio">
     <div class="portfolio-item" onclick="openModal('modal1')">
@@ -200,7 +189,7 @@
             </div>
             <div class="modal-right">
                 <h2>Lidl Eesti</h2>
-                <p>	For a short period, I worked on the social media content for Lidl Estonia. My duties primarily involved graphic design and photography, with the occasional motion graphics project. Fun fact— that Narva castle was traced from a photo and made from scratch.<br><br><p>Pa-pa-pa parim suvi!</p>
+                <p>	For a short period, I worked on the social media content for Lidl Estonia. My duties primarily involved graphic design and photography, with the occasional motion graphics project. Fun fact— that Narva castle was traced from a photo and made from scratch.</p>
                 <div class="agency-info">
                     <span class="agency-label">Agency:</span>
                     <span class="agency-name"><a href="https://www.imagine.ee" target="_blank">Imagine\TBWA</a></span>
@@ -405,7 +394,7 @@
 
 <div class="footer">
     <div class="footer-left">
-        <p>Made by Kaspar Kaur with some help from ChatGPT</p>
+        <p>Made by the tiny little fingers of Kaspar Kaur.</p>
     </div>
     <div class="social-icons">
         <a href="https://www.behance.net/kazo" target="_blank"><img src="images/icns/behance.svg" alt="Behance"></a>
@@ -420,7 +409,6 @@
 </div>
 
 <script defer src="https://cloud.umami.is/script.js" data-website-id="6d967e30-1a55-4e41-97a5-361e710a921a"></script>
-<script defer src="css/modal.js"></script>
 
 </body>
 

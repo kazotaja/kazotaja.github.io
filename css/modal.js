@@ -3,6 +3,10 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('.modal').forEach(function(modal) {
         modal.style.display = "none";
     });
+
+    // Hide the overlay as well
+    const overlay = document.getElementById('modal-overlay');
+    if (overlay) overlay.style.display = "none";
 });
 
 // Track the order of modals
@@ -36,6 +40,11 @@ function openModalByIndex(index) {
             closeModal(modals[currentModalIndex].id);
         }
         modals[index].style.display = 'flex';
+
+        // Show the overlay
+        const overlay = document.getElementById('modal-overlay');
+        if (overlay) overlay.style.display = 'block';
+
         document.body.classList.add('no-scroll');
         currentModalIndex = index;
     }
@@ -57,6 +66,11 @@ function closeModal(modalId) {
     const modal = document.getElementById(modalId);
     if (modal) {
         modal.style.display = 'none';
+
+        // Hide the overlay
+        const overlay = document.getElementById('modal-overlay');
+        if (overlay) overlay.style.display = 'none';
+
         document.body.classList.remove('no-scroll');
         currentModalIndex = -1;
     }
@@ -90,6 +104,16 @@ window.onload = function() {
             }
         });
     });
+
+    // Close modal when clicking the overlay
+    const overlay = document.getElementById('modal-overlay');
+    if (overlay) {
+        overlay.addEventListener('click', function() {
+            if (currentModalIndex >= 0) {
+                closeModal(modals[currentModalIndex].id);
+            }
+        });
+    }
 
     // Keyboard navigation for modals
     document.addEventListener('keydown', function(event) {

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Recipe Layout</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f9f9f9;
+        }
+        .collapsible {
+            background-color: #222;
+            color: #fff;
+            cursor: pointer;
+            padding: 10px;
+            border: none;
+            text-align: left;
+            font-size: 16px;
+            width: 100%;
+        }
+        .content {
+            display: none;
+            overflow: hidden;
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .recipe-layout {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 20px;
+        }
+        .ingredients ul {
+            list-style-type: none; /* Removes bullets */
+            padding: 0; /* Removes left padding */
+        }
+
+        .ingredients li {
+            margin-bottom: 10px; /* Adds spacing between items */
+        }
+        .instructions {
+            line-height: 1.6;
+        }
+        @media (max-width: 768px) {
+            .recipe-layout {
+                grid-template-columns: 1fr; /* Single column on narrow screens */
+                gap: 10px;
+            }
+            .ingredients, .instructions {
+                margin: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <button type="button" class="collapsible">Headline</button>
+    <div class="content">
+        <div class="recipe-layout">
+            <div class="ingredients">
+                <h3>Ingredients</h3>
+                <ul>
+                    <li><label><input type="checkbox" data-key="frillis"> Frillis 1</label></li>
+                    <li><label><input type="checkbox" data-key="paprika"> Paprika 2</label></li>
+                    <li><label><input type="checkbox" data-key="sibul"> Punane sibul 1</label></li>
+                    <li><label><input type="checkbox" data-key="kuskuss"> Kuskuss</label></li>
+                    <li><label><input type="checkbox" data-key="voi"> Või</label></li>
+                    <li><label><input type="checkbox" data-key="kana"> Kana 250g</label></li>
+                    <li><label><input type="checkbox" data-key="jogurt"> Kreeka jogurt (pool)</label></li>
+                    <li><label><input type="checkbox" data-key="feta"> Feta (3/4 pakist)</label></li>
+                </ul>
+                <button id="clear-checklist">Clear All</button>
+            </div>
+            <div class="instructions">
+                <h3>Instructions</h3>
+                <p>Alusta juurviljadest: Pese frillis, paprikad ja 1 pun sibul. Ja haki ja pane kaussi v suurde potti v panni. Kus iganes meil kõige parem salat kokku keerata, ma tegin ju suure kausi katki.</p>
+                <p>Siis võta u kolmeveerand muumitassi kuskussi ja pane väiksesse potti. Keeda vesi ja lisa see samas koguses kuskussile peale ja keeda madalal tulel koguaeg segades paar minti, kuni kuskuss vesi sisse tõmmanud. Siis lisa tükk võid, sega ja hoia veel paar minti potis. Siis keera tuli maha ja pane kaas peale.</p>
+                <p>Siis prae kogu kana ja pane pool supi jaoks kõrvale. Ja siis väikses valges kausis tee kaste kuhu läheb pool kreekajogurtist ja peaaegu kogu pakk fetat. Fetat jäta väike tükk alles omleti jaoks. Sega omavahel läbi, et oleks ühtlane ja siis keera kõik omavahel kokku.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const collapsible = document.querySelector('.collapsible');
+        const content = document.querySelector('.content');
+        
+        collapsible.addEventListener('click', () => {
+            const isVisible = content.style.display === 'block';
+            content.style.display = isVisible ? 'none' : 'block';
+        });
+    </script>
+
+<script>
+    // Restore state from localStorage
+    document.querySelectorAll('input[type="checkbox"]').forEach((checkbox) => {
+        const key = checkbox.getAttribute('data-key');
+        checkbox.checked = localStorage.getItem(key) === 'true'; // Restore checked state
+
+        // Save state when checkbox is toggled
+        checkbox.addEventListener('change', () => {
+            localStorage.setItem(key, checkbox.checked);
+        });
+    });
+
+    // Clear all checkboxes
+    document.getElementById('clear-checklist').addEventListener('click', () => {
+        document.querySelectorAll('input[type="checkbox"]').forEach((checkbox) => {
+            checkbox.checked = false;
+            localStorage.removeItem(checkbox.getAttribute('data-key'));
+        });
+    });
+</script>
+</body>
+</html>
