@@ -1,61 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Taavi Peterson & Üdi</title>
-    <link rel="stylesheet" href="style_content.css">
-    <style>
-        /* Set white background for the body */
-        body {
-            background-color: #fff;
-        }
-        
-        /* Responsive aspect ratio for embedded video */
-        .video-container {
-            position: relative;
-            width: 100%;
-            padding-top: 56.25%; /* 16:9 Aspect Ratio */
-            overflow: hidden;
-            border-radius: 10px; /* Rounded corners for the container */
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Taavi Peterson & Üdi</title>
+  <link rel="stylesheet" href="style_content.css">
+  <style>
+    .image-padding {
+      padding-top: 40px;
+      padding-bottom: 40px;
+    }
 
-        .video-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border-radius: 10px; /* Rounded corners for the iframe */
-        }
-
-        /* Custom padding for taavi_1.png */
-        .image-padding {
-            padding-top: 40px; /* Adjust top padding */
-            padding-bottom: 40px; /* Adjust bottom padding */
-        }
-    </style>
+    .video-embed {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border: 0;
+      border-radius: 10px;
+      display: block;
+      background: rgba(255,255,255,0.02);
+    }
+  </style>
 </head>
 <body>
-
-    <div class="media-grid" width="100%">
-        <div class="image-padding">
-            <img src="images/taavi/taavi_header_mv.png" alt="Project Image 1">
-        </div>
-        
-        <img src="images/taavi/taavi_2.jpg" alt="Project Image 2"><br>
-        <img src="images/taavi/taavi_3.jpg" alt="Project Image 3"><br>
-        
-        <!-- Set specific size for taavi_4.jpg -->
-        <img src="images/taavi/taavi_4.jpg" alt="Project Image 4" width="640" height="640" !important><br>
-
-        <!-- Video Container for Responsive Aspect Ratio -->
-        <div class="video-container">
-            <iframe src="https://www.youtube-nocookie.com/embed/7gajMsRq9TI?si=d-bSnvkCAYO0T0vt" title="YouTube video player" frameborder="0" 
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
-            </iframe>
-        </div>
+  <div class="media-grid">
+    <div class="image-padding">
+      <img src="images/taavi/taavi_header_white.png" alt="Taavi Peterson & Üdi header" loading="lazy" decoding="async">
     </div>
 
+    <img src="images/taavi/taavi_2.jpg" alt="Project image 2" loading="lazy" decoding="async">
+    <img src="images/taavi/taavi_3.jpg" alt="Project image 3" loading="lazy" decoding="async">
+    <img src="images/taavi/taavi_4.jpg" alt="Project image 4" loading="lazy" decoding="async">
+
+    <iframe
+      class="video-embed"
+      src="https://www.youtube-nocookie.com/embed/7gajMsRq9TI?si=d-bSnvkCAYO0T0vt"
+      title="Taavi Peterson & Üdi video"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      referrerpolicy="strict-origin-when-cross-origin"
+      allowfullscreen
+      loading="lazy">
+    </iframe>
+  </div>
 </body>
 </html>

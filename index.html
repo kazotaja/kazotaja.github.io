@@ -4,6 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Kaspar Kaur's portfolio showcasing creative projects and designs.">
+  <meta name="theme-color" content="#12161c">
+  <meta name="theme-color" content="#12161c" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#12161c" media="(prefers-color-scheme: light)">
+  <meta name="color-scheme" content="dark">
   <meta property="og:title" content="kazo.work">
   <meta property="og:description" content="Portfolio of Kaspar Kaur">
   <meta property="og:image" content="https://kazo.work/images/web_thumbnail.png">
@@ -18,9 +22,9 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preconnect" href="https://cloud.umami.is">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap">
+  <link href="https://fonts.googleapis.com/css2?family=Mozilla+Headline:wght@200..700&family=Mozilla+Text:wght@200..700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://cloud.umami.is">
 
   <!-- Immediate patch: preload only the tiny poster -->
   <link rel="preload" href="videos/tiny.jpg" as="image">
@@ -37,21 +41,32 @@
   </div>
 
 <div class="header">
-  <img src="videos/tiny.jpg" class="video-placeholder" alt="Video placeholder">
+  <img src="videos/tiny.jpg" class="video-placeholder hero-video" alt="Video placeholder">
   <video
     loop
     muted
     playsinline
     preload="none"
     poster="videos/tiny.jpg"
-    class="header-video"
+    class="hero-video"
     id="headerVideo"
   >
     <source data-src="videos/masthead_720p_low.webm" type="video/webm">
     <source data-src="videos/masthead_720p_low.mp4" type="video/mp4">
     I'm afraid this video is not playing in your browser, for whatever reason. Just imagine the coolest reel you have ever seen and you're halfway there.
   </video>
+  <div class="hero-overlay"></div>
 </div>
+
+<button id="video-toggle" class="video-toggle" aria-label="Pause background video" title="Pause background video">
+  <svg id="pause-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <path d="M14,19H18V5H14M6,19H10V5H6V19Z"></path>
+  </svg>
+
+  <svg id="play-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style="display:none;">
+    <path d="M8,5.14V19.14L19,12.14L8,5.14Z"></path>
+  </svg>
+</button>
 
   <div id="modal-overlay"></div>
 
@@ -66,6 +81,14 @@
       <img class="default-img" src="images/logo_alc_bw.png" alt="A.Le Coq" loading="lazy" decoding="async">
     </div>
     -->
+    <!-- Hidden future front tiles -->
+    <div class="portfolio-item" style="display:none;" onclick="openModal('modal13')">
+      <img class="default-img" src="images/logo_alc_bw.png" alt="Bombay" loading="lazy" decoding="async">
+    </div>
+    <div class="portfolio-item" style="display:none;" onclick="openModal('modal14')">
+      <img class="default-img" src="images/logo_alc_bw.png" alt="Bigbank" loading="lazy" decoding="async">
+    </div>
+
 
     <div class="portfolio-item" onclick="openModal('modal3')">
       <img class="default-img" src="images/logo_rb_bw.png" alt="Red Bull" loading="lazy" decoding="async">
@@ -96,14 +119,6 @@
     </div>
     <div class="portfolio-item" onclick="openModal('modal12')">
       <img class="default-img" src="images/logo_hoop_bw.png" alt="HOOP" loading="lazy" decoding="async">
-    </div>
-
-    <!-- Hidden future front tiles -->
-    <div class="portfolio-item" style="display:none;" onclick="openModal('modal13')">
-      <img class="default-img" src="images/logo_alc_bw.png" alt="Bombay" loading="lazy" decoding="async">
-    </div>
-    <div class="portfolio-item" style="display:none;" onclick="openModal('modal14')">
-      <img class="default-img" src="images/logo_alc_bw.png" alt="Bigbank" loading="lazy" decoding="async">
     </div>
   </div>
 
@@ -326,7 +341,7 @@
   </div>
 
   <div class="footer">
-    <div class="footer-left"><p>Made by the tiny little fingers of Kaspar Kaur.</p></div>
+    <div class="footer-left"><p>You can also use ← → ESC keys to navigate the page.</p></div>
     <div class="social-icons">
       <a href="https://www.behance.net/kazo" target="_blank" rel="noopener noreferrer"><img src="images/icns/behance.svg" alt="Behance" loading="lazy" decoding="async"></a>
       <a href="https://www.linkedin.com/in/kazotaja" target="_blank" rel="noopener noreferrer"><img src="images/icns/linkedin.svg" alt="LinkedIn" loading="lazy" decoding="async"></a>

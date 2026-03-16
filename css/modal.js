@@ -5,6 +5,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const video = document.getElementById('headerVideo');
   const placeholder = document.querySelector('.video-placeholder');
 
+  const videoToggle = document.getElementById('video-toggle');
+  const playIcon = document.getElementById('play-icon');
+  const pauseIcon = document.getElementById('pause-icon');
+
   let currentModalIndex = -1;
 
   // Hide all modals on boot
@@ -25,15 +29,33 @@ document.addEventListener('DOMContentLoaded', () => {
     body.classList.toggle('no-scroll', lock);
   }
 
+  function updateVideoIcon() {
+    if (!video || !videoToggle || !playIcon || !pauseIcon) return;
+
+    if (video.paused) {
+      playIcon.style.display = 'block';
+      pauseIcon.style.display = 'none';
+      videoToggle.setAttribute('aria-label', 'Play background video');
+      videoToggle.setAttribute('title', 'Play background video');
+    } else {
+      playIcon.style.display = 'none';
+      pauseIcon.style.display = 'block';
+      videoToggle.setAttribute('aria-label', 'Pause background video');
+      videoToggle.setAttribute('title', 'Pause background video');
+    }
+  }
+
   function pauseHeroVideo() {
     if (video && !video.paused) {
       video.pause();
+      updateVideoIcon();
     }
   }
 
   function resumeHeroVideo() {
     if (video && video.dataset.loaded === 'true') {
       video.play().catch(() => {});
+      updateVideoIcon();
     }
   }
 
@@ -41,9 +63,13 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!modal) return;
 
     modal.querySelectorAll('iframe[data-src]').forEach(frame => {
-      if (!frame.src) {
-        frame.src = frame.dataset.src;
-      }
+      if (frame.src) return;
+
+      frame.addEventListener('error', () => {
+        frame.src = 'content/content_missing.html';
+      }, { once: true });
+
+      frame.src = frame.dataset.src;
     });
   }
 
@@ -107,7 +133,7 @@ document.addEventListener('DOMContentLoaded', () => {
     resumeHeroVideo();
   };
 
-  // Buttons
+  // Header buttons
   const cvLink = document.getElementById('cv-link');
   const kontaktLink = document.getElementById('kontakt-link');
 
@@ -122,6 +148,19 @@ document.addEventListener('DOMContentLoaded', () => {
     kontaktLink.addEventListener('click', e => {
       e.preventDefault();
       window.openModal('kontakt-modal');
+    });
+  }
+
+  // Tiny video play/pause button
+  if (videoToggle && video) {
+    videoToggle.addEventListener('click', () => {
+      if (video.paused) {
+        video.play().catch(() => {});
+      } else {
+        video.pause();
+      }
+
+      updateVideoIcon();
     });
   }
 
@@ -150,7 +189,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // Lazy-load hero video only after page load / idle
+  // Lazy-load hero video after page load / idle
   function loadHeroVideo() {
     if (!video || video.dataset.loaded === 'true') return;
 
@@ -170,6 +209,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       video.classList.add('loaded');
       video.play().catch(() => {});
+      updateVideoIcon();
 
       setTimeout(() => {
         if (placeholder) {
