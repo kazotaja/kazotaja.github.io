@@ -1,130 +1,189 @@
-// Immediately hide all modals when the script loads
-document.addEventListener('DOMContentLoaded', function() {
-    document.querySelectorAll('.modal').forEach(function(modal) {
-        modal.style.display = "none";
+document.addEventListener('DOMContentLoaded', () => {
+  const modals = Array.from(document.querySelectorAll('.modal'));
+  const overlay = document.getElementById('modal-overlay');
+  const body = document.body;
+  const video = document.getElementById('headerVideo');
+  const placeholder = document.querySelector('.video-placeholder');
+
+  let currentModalIndex = -1;
+
+  // Hide all modals on boot
+  modals.forEach(modal => {
+    modal.style.display = 'none';
+  });
+
+  if (overlay) {
+    overlay.style.display = 'none';
+  }
+
+  function showOverlay(show) {
+    if (!overlay) return;
+    overlay.style.display = show ? 'block' : 'none';
+  }
+
+  function lockScroll(lock) {
+    body.classList.toggle('no-scroll', lock);
+  }
+
+  function pauseHeroVideo() {
+    if (video && !video.paused) {
+      video.pause();
+    }
+  }
+
+  function resumeHeroVideo() {
+    if (video && video.dataset.loaded === 'true') {
+      video.play().catch(() => {});
+    }
+  }
+
+  function loadModalIframes(modal) {
+    if (!modal) return;
+
+    modal.querySelectorAll('iframe[data-src]').forEach(frame => {
+      if (!frame.src) {
+        frame.src = frame.dataset.src;
+      }
     });
+  }
 
-    // Hide the overlay as well
-    const overlay = document.getElementById('modal-overlay');
-    if (overlay) overlay.style.display = "none";
-});
+  function findModalIndexById(modalId) {
+    return modals.findIndex(modal => modal.id === modalId);
+  }
 
-// Track the order of modals
-const modals = document.querySelectorAll('.modal');
-let currentModalIndex = -1;
+  function openModalByIndex(index) {
+    if (index < 0 || index >= modals.length) return;
 
-window.addEventListener('load', function() {
-    const videoElement = document.getElementById('headerVideo');
-    const sourceElement = videoElement.querySelector('source');
-
-    if (videoElement && sourceElement) {
-        const highResSrc = sourceElement.getAttribute('data-highres');
-        if (highResSrc) {
-            videoElement.addEventListener('loadeddata', () => {
-                document.querySelector('.video-placeholder').style.display = 'none';
-                videoElement.style.display = 'block';
-                videoElement.classList.add('loaded');
-            });
-
-            // Load the high-res video
-            sourceElement.src = highResSrc;
-            videoElement.load();
-        }
+    if (currentModalIndex >= 0 && modals[currentModalIndex]) {
+      modals[currentModalIndex].style.display = 'none';
     }
-});
 
-// Helper function to open a modal by index
-function openModalByIndex(index) {
-    if (index >= 0 && index < modals.length) {
-        if (currentModalIndex >= 0) {
-            closeModal(modals[currentModalIndex].id);
-        }
-        modals[index].style.display = 'flex';
+    const modal = modals[index];
+    loadModalIframes(modal);
+    pauseHeroVideo();
 
-        // Show the overlay
-        const overlay = document.getElementById('modal-overlay');
-        if (overlay) overlay.style.display = 'block';
+    modal.style.display = 'flex';
+    showOverlay(true);
+    lockScroll(true);
+    currentModalIndex = index;
+  }
 
-        document.body.classList.add('no-scroll');
-        currentModalIndex = index;
+  function closeCurrentModal() {
+    if (currentModalIndex < 0) return;
+
+    const modal = modals[currentModalIndex];
+    if (modal) {
+      modal.style.display = 'none';
     }
-}
 
-// Navigate to the next or previous modal
-function navigateModal(direction) {
+    showOverlay(false);
+    lockScroll(false);
+    currentModalIndex = -1;
+    resumeHeroVideo();
+  }
+
+  function navigateModal(direction) {
+    if (currentModalIndex < 0 || modals.length === 0) return;
     const newIndex = (currentModalIndex + direction + modals.length) % modals.length;
     openModalByIndex(newIndex);
-}
+  }
 
-// Open and close modals
-function openModal(modalId) {
-    const modalIndex = Array.from(modals).findIndex(modal => modal.id === modalId);
-    if (modalIndex !== -1) openModalByIndex(modalIndex);
-}
+  // Expose globally for inline onclick handlers in HTML
+  window.openModal = function (modalId) {
+    const index = findModalIndexById(modalId);
+    if (index !== -1) {
+      openModalByIndex(index);
+    }
+  };
 
-function closeModal(modalId) {
+  window.closeModal = function (modalId) {
     const modal = document.getElementById(modalId);
-    if (modal) {
-        modal.style.display = 'none';
+    if (!modal) return;
 
-        // Hide the overlay
-        const overlay = document.getElementById('modal-overlay');
-        if (overlay) overlay.style.display = 'none';
+    modal.style.display = 'none';
+    showOverlay(false);
+    lockScroll(false);
+    currentModalIndex = -1;
+    resumeHeroVideo();
+  };
 
-        document.body.classList.remove('no-scroll');
-        currentModalIndex = -1;
+  // Buttons
+  const cvLink = document.getElementById('cv-link');
+  const kontaktLink = document.getElementById('kontakt-link');
+
+  if (cvLink) {
+    cvLink.addEventListener('click', e => {
+      e.preventDefault();
+      window.openModal('cv-modal');
+    });
+  }
+
+  if (kontaktLink) {
+    kontaktLink.addEventListener('click', e => {
+      e.preventDefault();
+      window.openModal('kontakt-modal');
+    });
+  }
+
+  // Click outside modal-content closes modal
+  modals.forEach(modal => {
+    modal.addEventListener('click', event => {
+      if (event.target === modal) {
+        window.closeModal(modal.id);
+      }
+    });
+  });
+
+  if (overlay) {
+    overlay.addEventListener('click', closeCurrentModal);
+  }
+
+  document.addEventListener('keydown', event => {
+    if (currentModalIndex < 0) return;
+
+    if (event.key === 'ArrowRight') {
+      navigateModal(1);
+    } else if (event.key === 'ArrowLeft') {
+      navigateModal(-1);
+    } else if (event.key === 'Escape') {
+      closeCurrentModal();
     }
-}
+  });
 
-// Event listener setup after DOM is fully loaded
-window.onload = function() {
-    // Adding event listeners for the CV and Kontakt buttons
-    const cvLink = document.getElementById('cv-link');
-    const kontaktLink = document.getElementById('kontakt-link');
+  // Lazy-load hero video only after page load / idle
+  function loadHeroVideo() {
+    if (!video || video.dataset.loaded === 'true') return;
 
-    if (cvLink) {
-        cvLink.addEventListener('click', function(e) {
-            e.preventDefault();
-            openModal('cv-modal');
-        });
-    }
+    const sources = video.querySelectorAll('source[data-src]');
+    if (!sources.length) return;
 
-    if (kontaktLink) {
-        kontaktLink.addEventListener('click', function(e) {
-            e.preventDefault();
-            openModal('kontakt-modal');
-        });
-    }
-
-    // Close modal when clicking outside of modal content
-    document.querySelectorAll('.modal').forEach(modal => {
-        modal.addEventListener('click', function(event) {
-            if (event.target === modal) {
-                closeModal(modal.id); // Close modal if clicking outside content
-            }
-        });
+    sources.forEach(source => {
+      source.src = source.dataset.src;
     });
 
-    // Close modal when clicking the overlay
-    const overlay = document.getElementById('modal-overlay');
-    if (overlay) {
-        overlay.addEventListener('click', function() {
-            if (currentModalIndex >= 0) {
-                closeModal(modals[currentModalIndex].id);
-            }
-        });
-    }
+    video.dataset.loaded = 'true';
 
-    // Keyboard navigation for modals
-    document.addEventListener('keydown', function(event) {
-        if (currentModalIndex >= 0) {
-            if (event.key === 'ArrowRight') {
-                navigateModal(1); // Navigate to the next modal
-            } else if (event.key === 'ArrowLeft') {
-                navigateModal(-1); // Navigate to the previous modal
-            } else if (event.key === 'Escape') {
-                closeModal(modals[currentModalIndex].id); // Close the current modal
-            }
+    video.addEventListener('loadeddata', () => {
+      if (placeholder) {
+        placeholder.style.opacity = '0';
+      }
+
+      video.classList.add('loaded');
+      video.play().catch(() => {});
+
+      setTimeout(() => {
+        if (placeholder) {
+          placeholder.style.display = 'none';
         }
-    });
-};
+      }, 350);
+    }, { once: true });
+
+    video.load();
+  }
+
+  if ('requestIdleCallback' in window) {
+    requestIdleCallback(loadHeroVideo, { timeout: 1500 });
+  } else {
+    window.addEventListener('load', loadHeroVideo, { once: true });
+  }
+});

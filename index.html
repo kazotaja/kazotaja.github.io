@@ -1,415 +1,344 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Kaspar Kaur's portfolio showcasing creative projects and designs.">
-    <meta property="og:title" content="kazo.work">
-    <meta property="og:description" content="Portfolio of Kaspar Kaur">
-    <meta property="og:image" content="https://kazo.work/images/web_thumbnail.png">
-    <meta property="og:url" content="https://kazo.work/">
-    <meta property="og:type" content="website">
-    <title>Selected Works of Kaspar Kaur</title>
-    <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon/favicon-16x16.png">
-    <link rel="manifest" href="/images/favicon/site.webmanifest">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://cloud.umami.is">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="preload" href="videos/tiny.jpg" as="image">
-    <link rel="preload" href="videos/large.jpg" as="image">
-    <link rel="preload" href="videos/masthead_720p_low.webm" as="video" type="video/mp4" crossorigin="anonymous">
-    <link rel="preload" href="videos/masthead_720p_low.mp4" as="video" type="video/mp4" crossorigin="anonymous">
-    <script defer src="css/modal.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Kaspar Kaur's portfolio showcasing creative projects and designs.">
+  <meta property="og:title" content="kazo.work">
+  <meta property="og:description" content="Portfolio of Kaspar Kaur">
+  <meta property="og:image" content="https://kazo.work/images/web_thumbnail.png">
+  <meta property="og:url" content="https://kazo.work/">
+  <meta property="og:type" content="website">
+  <title>Selected Works of Kaspar Kaur</title>
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon/favicon-16x16.png">
+  <link rel="manifest" href="/images/favicon/site.webmanifest">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cloud.umami.is">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Immediate patch: preload only the tiny poster -->
+  <link rel="preload" href="videos/tiny.jpg" as="image">
+
+  <script defer src="css/modal.js"></script>
 </head>
 
 <body>
+  <div class="menu-bar">
+    <div class="menu-bar-logo">Selected Works of <b>Kaspar Kaur</b></div>
+    <nav>
+      <button class="button-87" id="cv-link" role="button">Grab my CV!</button>
+    </nav>
+  </div>
 
-    <div class="menu-bar">
-        <div class="menu-bar-logo">Selected Works of <b>Kaspar Kaur</b></div>
-        <nav>
-            <button class="button-87" id="cv-link" role="button">
-                Grab my CV!
-            </button>
-        </nav>
-    </div>
+<div class="header">
+  <img src="videos/tiny.jpg" class="video-placeholder" alt="Video placeholder">
+  <video
+    loop
+    muted
+    playsinline
+    preload="none"
+    poster="videos/tiny.jpg"
+    class="header-video"
+    id="headerVideo"
+  >
+    <source data-src="videos/masthead_720p_low.webm" type="video/webm">
+    <source data-src="videos/masthead_720p_low.mp4" type="video/mp4">
+    I'm afraid this video is not playing in your browser, for whatever reason. Just imagine the coolest reel you have ever seen and you're halfway there.
+  </video>
+</div>
 
-    <div class="header">
-        <img src="videos/large.jpg" class="video-placeholder" alt="Video placeholder">
-        <video autoplay loop muted playsinline class="header-video" id="headerVideo" oncanplay="this.style.opacity=1;" style="opacity: 0; transition: opacity 0.5s;">
+  <div id="modal-overlay"></div>
 
-            <!-- WebM fallback for modern browsers -->
-            <source src="videos/masthead_720p_low.webm" type="video/webm" data-highres="videos/masthead_1080p_high.webm">
-            <!-- MP4 fallback for older browsers -->
-            <source src="videos/masthead_720p_low.mp4" type="video/mp4" data-highres="videos/masthead_1080p_high.mp4">
-            
-            I'm afraid this video is not playing in your browser, for whatever reason. Just imagine the coolest reel you have ever seen and you're halfway there.
-        </video>
-    </div>
-
-<div id="modal-overlay"></div>
-
-<div class="portfolio">
+  <div class="portfolio">
     <div class="portfolio-item" onclick="openModal('modal1')">
-        <img class="default-img" src="images/logo_lexus_bw.png" alt="Lexus">
+      <img class="default-img" src="images/logo_lexus_bw.png" alt="Lexus" loading="lazy" decoding="async">
     </div>
-     <!--
+
+    <!-- A.Le Coq kept hidden for now -->
+    <!--
     <div class="portfolio-item" onclick="openModal('modal2')">
-        <img class="default-img" src="images/logo_alc_bw.png" alt="A.Le Coq">
+      <img class="default-img" src="images/logo_alc_bw.png" alt="A.Le Coq" loading="lazy" decoding="async">
     </div>
-     -->
+    -->
+
     <div class="portfolio-item" onclick="openModal('modal3')">
-        <img class="default-img" src="images/logo_rb_bw.png" alt="Red Bull">
-    </div>    
+      <img class="default-img" src="images/logo_rb_bw.png" alt="Red Bull" loading="lazy" decoding="async">
+    </div>
     <div class="portfolio-item" onclick="openModal('modal4')">
-        <img class="default-img" src="images/logo_lidl_bw.png" alt="Lidl">
+      <img class="default-img" src="images/logo_lidl_bw.png" alt="Lidl" loading="lazy" decoding="async">
     </div>
     <div class="portfolio-item" onclick="openModal('modal5')">
-        <img class="default-img" src="images/logo_bass_bw.png" alt="Bassiõhtu">
+      <img class="default-img" src="images/logo_bass_bw.png" alt="Bassiõhtu" loading="lazy" decoding="async">
     </div>
     <div class="portfolio-item" onclick="openModal('modal6')">
-        <img class="default-img" src="images/logo_sofa_bw.png" alt="Sofa King">
+      <img class="default-img" src="images/logo_sofa_bw.png" alt="Sofa King" loading="lazy" decoding="async">
     </div>
     <div class="portfolio-item" onclick="openModal('modal7')">
-        <img class="default-img" src="images/logo_speakeasy_bw.png" alt="Speakeasy">
+      <img class="default-img" src="images/logo_speakeasy_bw.png" alt="Speakeasy" loading="lazy" decoding="async">
     </div>
     <div class="portfolio-item" onclick="openModal('modal8')">
-        <img class="default-img" src="images/logo_tcbw_bw.png" alt="TCBW Sessions">
+      <img class="default-img" src="images/logo_tcbw_bw.png" alt="TCBW Sessions" loading="lazy" decoding="async">
     </div>
     <div class="portfolio-item" onclick="openModal('modal9')">
-        <img class="default-img" src="images/logo_sebe_bw.png" alt="Sebe">
+      <img class="default-img" src="images/logo_sebe_bw.png" alt="Sebe" loading="lazy" decoding="async">
     </div>
     <div class="portfolio-item" onclick="openModal('modal10')">
-        <img class="default-img" src="images/logo_taavi_bw.png" alt="Taavi Peterson">
+      <img class="default-img" src="images/logo_taavi_bw.png" alt="Taavi Peterson" loading="lazy" decoding="async">
     </div>
     <div class="portfolio-item" onclick="openModal('modal11')">
-        <img class="default-img" src="images/logo_ungru_bw.png" alt="Ungru">
+      <img class="default-img" src="images/logo_ungru_bw.png" alt="Ungru" loading="lazy" decoding="async">
     </div>
     <div class="portfolio-item" onclick="openModal('modal12')">
-        <img class="default-img" src="images/logo_hoop_bw.png" alt="HOOP">
+      <img class="default-img" src="images/logo_hoop_bw.png" alt="HOOP" loading="lazy" decoding="async">
     </div>
-</div>
 
-<div id="cv-modal" class="modal">
+    <!-- Hidden future front tiles -->
+    <div class="portfolio-item" style="display:none;" onclick="openModal('modal13')">
+      <img class="default-img" src="images/logo_alc_bw.png" alt="Bombay" loading="lazy" decoding="async">
+    </div>
+    <div class="portfolio-item" style="display:none;" onclick="openModal('modal14')">
+      <img class="default-img" src="images/logo_alc_bw.png" alt="Bigbank" loading="lazy" decoding="async">
+    </div>
+  </div>
+
+  <div id="cv-modal" class="modal">
     <div class="modal-content">
-        <span class="close" onclick="closeModal('cv-modal')">&times;</span>
-        <iframe src="cv.html" width="100%" height="100%"></iframe>
+      <span class="close" onclick="closeModal('cv-modal')">&times;</span>
+      <iframe data-src="cv.html" width="100%" height="100%" loading="lazy" title="CV"></iframe>
     </div>
-</div>
+  </div>
 
-<div id="modal1" class="modal">
+  <div id="modal1" class="modal">
     <div class="modal-content" onclick="event.stopPropagation();">
-        <span class="close" onclick="closeModal('modal1')">&times;</span>     
-        <div class="modal-columns">
-            <div class="modal-left">
-                <div class="iframe-wrapper">
-                    <iframe src="content/content_lexus.html" frameborder="0" width="100%" height="100%"></iframe>
-                </div>
-            </div>
-            <div class="modal-right">
-                <h2>Lexus Baltics</h2>
-                <p>For five years, I had the pleasure of working with Lexus Baltics, creating most of their print and outdoor materials for the Baltic States, including the recent 2022 Lexus International rebrand.</p>
-                <div class="agency-info">
-                    <span class="agency-label">Agency:</span>
-                    <span class="agency-name"><a href="https://www.taevas.ee" target="_blank">Taevas Ogilvy</a></span>
-                </div>
-                <div class="tag-cloud">
-                    <span class="tag">Outdoor</span>
-                    <span class="tag">Print</span>
-                    <span class="tag">Web</span>
-                </div>
-            </div>
+      <span class="close" onclick="closeModal('modal1')">&times;</span>
+      <div class="modal-columns">
+        <div class="modal-left"><div class="iframe-wrapper"><iframe data-src="content/content_lexus.html" frameborder="0" width="100%" height="100%" loading="lazy" title="Lexus Baltics"></iframe></div></div>
+        <div class="modal-right">
+          <h2>Lexus Baltics</h2>
+          <p>For five years, I had the pleasure of working with Lexus Baltics, creating most of their print and outdoor materials for the Baltic States, including the recent 2022 Lexus International rebrand.</p>
+          <div class="agency-info"><span class="agency-label">Agency:</span> <span class="agency-name"><a href="https://www.taevas.ee" target="_blank" rel="noopener noreferrer">Taevas Ogilvy</a></span></div>
+          <div class="tag-cloud"><span class="tag">Outdoor</span><span class="tag">Print</span><span class="tag">Web</span></div>
         </div>
+      </div>
     </div>
-</div>
+  </div>
 
-<div id="modal2" class="modal">
+  <div id="modal2" class="modal">
     <div class="modal-content" onclick="event.stopPropagation();">
-        <span class="close" onclick="closeModal('modal2')">&times;</span>
-        <div class="modal-columns">
-            <div class="modal-left">
-                <div class="iframe-wrapper">
-                    <iframe src="content/content_alecoq.html" frameborder="0" width="100%" height="100%"></iframe>
-                </div>
-            </div>
-            <div class="modal-right">
-                <h2>A.Le Coq</h2>
-                <p>For a few years, I worked with one of the largest beverage manufacturers in the Baltic region, A. Le Coq, focusing mostly on packaging and print design. Projects included everything from merch to POS materials. My biggest achievement was probably refreshing and unifying the entire Alexander product line, one of Estonia's best-selling beer brands.</p>
-                <div class="agency-info">
-                    <span class="agency-label">Agency:</span>
-                    <span class="agency-name"><a href="https://www.taevas.ee" target="_blank">Taevas Ogilvy</a></span>
-                </div>
-                <div class="tag-cloud">
-                    <span class="tag">Packaging</span>
-                    <span class="tag">Print</span>
-                    <span class="tag">POS</span>
-                </div>
-            </div>
+      <span class="close" onclick="closeModal('modal2')">&times;</span>
+      <div class="modal-columns">
+        <div class="modal-left"><div class="iframe-wrapper"><iframe data-src="content/content_alecoq.html" frameborder="0" width="100%" height="100%" loading="lazy" title="A.Le Coq"></iframe></div></div>
+        <div class="modal-right">
+          <h2>A.Le Coq</h2>
+          <p>For a few years, I worked with one of the largest beverage manufacturers in the Baltic region, A. Le Coq, focusing mostly on packaging and print design. Projects included everything from merch to POS materials. My biggest achievement was probably refreshing and unifying the entire Alexander product line, one of Estonia's best-selling beer brands.</p>
+          <div class="agency-info"><span class="agency-label">Agency:</span> <span class="agency-name"><a href="https://www.taevas.ee" target="_blank" rel="noopener noreferrer">Taevas Ogilvy</a></span></div>
+          <div class="tag-cloud"><span class="tag">Packaging</span><span class="tag">Print</span><span class="tag">POS</span></div>
         </div>
+      </div>
     </div>
-</div>
+  </div>
 
-<div id="modal3" class="modal">
+  <div id="modal3" class="modal">
     <div class="modal-content" onclick="event.stopPropagation();">
-        <span class="close" onclick="closeModal('modal3')">&times;</span>
-        <div class="modal-columns">
-            <div class="modal-left">
-                <div class="iframe-wrapper">
-                    <iframe src="content/content_redbull.html" frameborder="0" width="100%" height="100%"></iframe>
-                </div>
-            </div>
-            <div class="modal-right">
-                <h2>Red Bull</h2>
-                <p>Recently, I had the opportunity to design some display screens for Red Bull. Nothing too fancy, but it moves a little and looks pretty cool.</p>
-                <div class="agency-info">
-                    <span class="agency-label">Agency:</span>
-                    <span class="agency-name"><a href="https://www.reflekt.ee/" target="_blank">Reflekt</a></span>
-                </div>
-                <div class="tag-cloud">
-                    <span class="tag">Motion graphics</span>
-                    <span class="tag">Graphic Design</span>
-                </div>
-            </div> 
+      <span class="close" onclick="closeModal('modal3')">&times;</span>
+      <div class="modal-columns">
+        <div class="modal-left"><div class="iframe-wrapper"><iframe data-src="content/content_redbull.html" frameborder="0" width="100%" height="100%" loading="lazy" title="Red Bull"></iframe></div></div>
+        <div class="modal-right">
+          <h2>Red Bull</h2>
+          <p>Recently, I had the opportunity to design some display screens for Red Bull. Nothing too fancy, but it moves a little and looks pretty cool.</p>
+          <div class="agency-info"><span class="agency-label">Agency:</span> <span class="agency-name"><a href="https://www.reflekt.ee/" target="_blank" rel="noopener noreferrer">Reflekt</a></span></div>
+          <div class="tag-cloud"><span class="tag">Motion graphics</span><span class="tag">Graphic Design</span></div>
         </div>
+      </div>
     </div>
-</div>
+  </div>
 
-<div id="modal4" class="modal">
+  <div id="modal4" class="modal">
     <div class="modal-content" onclick="event.stopPropagation();">
-        <span class="close" onclick="closeModal('modal4')">&times;</span>
-        <div class="modal-columns">
-            <div class="modal-left">
-                <div class="iframe-wrapper">
-                    <iframe src="content/content_lidl.html" frameborder="0" width="100%" height="100%"></iframe>
-                </div>
-            </div>
-            <div class="modal-right">
-                <h2>Lidl Eesti</h2>
-                <p>	For a short period, I worked on the social media content for Lidl Estonia. My duties primarily involved graphic design and photography, with the occasional motion graphics project. Fun fact— that Narva castle was traced from a photo and made from scratch.</p>
-                <div class="agency-info">
-                    <span class="agency-label">Agency:</span>
-                    <span class="agency-name"><a href="https://www.imagine.ee" target="_blank">Imagine\TBWA</a></span>
-                </div>
-                <div class="tag-cloud">
-                    <span class="tag">Social Media Design</span>
-                    <span class="tag">Graphic Design</span>
-                    <span class="tag">Photography</span>
-                    <span class="tag">Motion Graphics</span>
-                </div>
-            </div>
+      <span class="close" onclick="closeModal('modal4')">&times;</span>
+      <div class="modal-columns">
+        <div class="modal-left"><div class="iframe-wrapper"><iframe data-src="content/content_lidl.html" frameborder="0" width="100%" height="100%" loading="lazy" title="Lidl Eesti"></iframe></div></div>
+        <div class="modal-right">
+          <h2>Lidl Eesti</h2>
+          <p>For a short period, I worked on the social media content for Lidl Estonia. My duties primarily involved graphic design and photography, with the occasional motion graphics project. Fun fact, that Narva castle was traced from a photo and made from scratch.</p>
+          <div class="agency-info"><span class="agency-label">Agency:</span> <span class="agency-name"><a href="https://www.imagine.ee" target="_blank" rel="noopener noreferrer">Imagine\TBWA</a></span></div>
+          <div class="tag-cloud"><span class="tag">Social Media Design</span><span class="tag">Graphic Design</span><span class="tag">Photography</span><span class="tag">Motion Graphics</span></div>
         </div>
+      </div>
     </div>
-</div>
+  </div>
 
-<div id="modal5" class="modal">
+  <div id="modal5" class="modal">
     <div class="modal-content" onclick="event.stopPropagation();">
-        <span class="close" onclick="closeModal('modal5')">&times;</span>
-        <div class="modal-columns">
-            <div class="modal-left">
-                <div class="iframe-wrapper">
-                    <iframe src="content/content_bass.html" frameborder="0" width="100%" height="100%"></iframe>
-                </div>
-            </div>
-            <div class="modal-right">
-                <h2>Bassiõhtu</h2>
-                <p>About a decade ago, some of my closest friends started an underground event series called Bassiõhtu. Despite the event's obscurity, they gave me practically free rein to do whatever I saw fit with the graphic design. And boy, did I try everything I could think of. The project has lasted nearly a decade, and I have nothing but fond memories of the whole thing.</p>
-                <div class="spacer"></div>
-                <div class="tag-cloud">
-                    <span class="tag">Print Design</span>
-                    <span class="tag">Graphic Design</span>
-                    <span class="tag">Video Editing</span>
-                </div>
-            </div>
+      <span class="close" onclick="closeModal('modal5')">&times;</span>
+      <div class="modal-columns">
+        <div class="modal-left"><div class="iframe-wrapper"><iframe data-src="content/content_bass.html" frameborder="0" width="100%" height="100%" loading="lazy" title="Bassiõhtu"></iframe></div></div>
+        <div class="modal-right">
+          <h2>Bassiõhtu</h2>
+          <p>About a decade ago, some of my closest friends started an underground event series called Bassiõhtu. Despite the event's obscurity, they gave me practically free rein to do whatever I saw fit with the graphic design. And boy, did I try everything I could think of. The project has lasted nearly a decade, and I have nothing but fond memories of the whole thing.</p>
+          <div class="spacer"></div>
+          <div class="tag-cloud"><span class="tag">Print Design</span><span class="tag">Graphic Design</span><span class="tag">Video Editing</span></div>
         </div>
+      </div>
     </div>
-</div>
+  </div>
 
-<div id="modal6" class="modal">
+  <div id="modal6" class="modal">
     <div class="modal-content" onclick="event.stopPropagation();">
-        <span class="close" onclick="closeModal('modal6')">&times;</span>
-        <div class="modal-columns">
-            <div class="modal-left">
-                <div class="iframe-wrapper">
-                    <iframe src="content/content_sofa.html" frameborder="0" width="100%" height="100%"></iframe>
-                </div>
-            </div>
-            <div class="modal-right">
-                <h2>Sofa King</h2>
-                <p>Sofa King is an even more obscure modern underground event series. I jumped on the opportunity to design some graphics and visual imagery for them, as they allowed me complete creative freedom. It gave me a great opportunity to work on my 3D skills and develop some truly engaging visuals.</p>
-                <div class="spacer"></div>
-                <div class="tag-cloud">
-                    <span class="tag">Motion Graphics</span>
-                    <span class="tag">Graphic Design</span>
-                    <span class="tag">3D Graphics</span>
-                </div>
-            </div>
+      <span class="close" onclick="closeModal('modal6')">&times;</span>
+      <div class="modal-columns">
+        <div class="modal-left"><div class="iframe-wrapper"><iframe data-src="content/content_sofa.html" frameborder="0" width="100%" height="100%" loading="lazy" title="Sofa King"></iframe></div></div>
+        <div class="modal-right">
+          <h2>Sofa King</h2>
+          <p>Sofa King is an even more obscure modern underground event series. I jumped on the opportunity to design some graphics and visual imagery for them, as they allowed me complete creative freedom. It gave me a great opportunity to work on my 3D skills and develop some truly engaging visuals.</p>
+          <div class="spacer"></div>
+          <div class="tag-cloud"><span class="tag">Motion Graphics</span><span class="tag">Graphic Design</span><span class="tag">3D Graphics</span></div>
         </div>
+      </div>
     </div>
-</div>
+  </div>
 
-<div id="modal7" class="modal">
+  <div id="modal7" class="modal">
     <div class="modal-content" onclick="event.stopPropagation();">
-        <span class="close" onclick="closeModal('modal7')">&times;</span>
-        <div class="modal-columns">
-            <div class="modal-left">
-                <div class="iframe-wrapper">
-                    <iframe src="content/content_speakeasy.html" frameborder="0" width="100%" height="100%"></iframe>
-                </div>
-            </div>
-            <div class="modal-right">
-                <h2>Speakeasy</h2>
-                <p><a href="http://speakeasy.ee/" target="_blank">Speakeasy</a> was a tiny plywood bar in the Kopli neighborhood, run by the good folks at <a href="https://pohjalabeer.com/" target="_blank">Põhjala Brewery</a>. It operated sometime between 2014 and 2018 and is now run by the team from <a href="https://www.facebook.com/burgerboxbox/" target=_blank>Burger Box</a>. I had the good fortune to design some social media and print materials for the bar back when it was open. Portfolio-worthy material? You betcha!</p>
-                <div class="spacer"></div>
-                <div class="tag-cloud">
-                    <span class="tag">Graphic Design</span>
-                    <span class="tag">Social Media Design</span>
-                </div>
-            </div>
+      <span class="close" onclick="closeModal('modal7')">&times;</span>
+      <div class="modal-columns">
+        <div class="modal-left"><div class="iframe-wrapper"><iframe data-src="content/content_speakeasy.html" frameborder="0" width="100%" height="100%" loading="lazy" title="Speakeasy"></iframe></div></div>
+        <div class="modal-right">
+          <h2>Speakeasy</h2>
+          <p><a href="http://speakeasy.ee/" target="_blank" rel="noopener noreferrer">Speakeasy</a> was a tiny plywood bar in the Kopli neighborhood, run by the good folks at <a href="https://pohjalabeer.com/" target="_blank" rel="noopener noreferrer">Põhjala Brewery</a>. It operated sometime between 2014 and 2018 and is now run by the team from <a href="https://www.facebook.com/burgerboxbox/" target="_blank" rel="noopener noreferrer">Burger Box</a>. I had the good fortune to design some social media and print materials for the bar back when it was open. Portfolio-worthy material? You betcha!</p>
+          <div class="spacer"></div>
+          <div class="tag-cloud"><span class="tag">Graphic Design</span><span class="tag">Social Media Design</span></div>
         </div>
+      </div>
     </div>
-</div>
+  </div>
 
-<div id="modal8" class="modal">
+  <div id="modal8" class="modal">
     <div class="modal-content" onclick="event.stopPropagation();">
-        <span class="close" onclick="closeModal('modal8')">&times;</span>
-        <div class="modal-columns">
-            <div class="modal-left">
-                <div class="iframe-wrapper">
-                    <iframe src="content/content_tcbw.html" frameborder="0" width="100%" height="100%"></iframe>
-                </div>
-            </div>
-            <div class="modal-right">
-                <h2>TCBW Sessions</h2>
-                <p>TCBW Sessions was a festival event that Põhjala hosted at the plywood bar in Speakeasy during <a href="https://www.tcbw.ee/" target="_blank">Tallinn Craft Beer Weekend</a>. I'm including it here because of how fun and liberating it was to design for something you believe in, helping to create a cohesive visual identity for the event.</p>
-                <div class="spacer"></div>
-                <div class="tag-cloud">
-                    <span class="tag">Graphic Design</span>
-                    <span class="tag">Social Media Design</span>
-                </div>
-            </div>
+      <span class="close" onclick="closeModal('modal8')">&times;</span>
+      <div class="modal-columns">
+        <div class="modal-left"><div class="iframe-wrapper"><iframe data-src="content/content_tcbw.html" frameborder="0" width="100%" height="100%" loading="lazy" title="TCBW Sessions"></iframe></div></div>
+        <div class="modal-right">
+          <h2>TCBW Sessions</h2>
+          <p>TCBW Sessions was a festival event that Põhjala hosted at the plywood bar in Speakeasy during <a href="https://www.tcbw.ee/" target="_blank" rel="noopener noreferrer">Tallinn Craft Beer Weekend</a>. I'm including it here because of how fun and liberating it was to design for something you believe in, helping to create a cohesive visual identity for the event.</p>
+          <div class="spacer"></div>
+          <div class="tag-cloud"><span class="tag">Graphic Design</span><span class="tag">Social Media Design</span></div>
         </div>
+      </div>
     </div>
-</div>
+  </div>
 
-
-<div id="modal9" class="modal">
+  <div id="modal9" class="modal">
     <div class="modal-content" onclick="event.stopPropagation();">
-        <span class="close" onclick="closeModal('modal9')">&times;</span>
-        <div class="modal-columns">
-            <div class="modal-left">
-                <div class="iframe-wrapper">
-                    <iframe src="content/content_sebe.html" frameborder="0" width="100%" height="100%"></iframe>
-                </div>
-            </div>
-            <div class="modal-right">
-                <h2>SEBE</h2>
-                <p>Back in 2013-2014, I worked on social media design for SEBE, Estonia's largest bus service operator, creating visuals for their social media content. A notable aspect here—at that time, Facebook only allowed 20% text on images, so every design needed to adhere to that rule. Go get your rulers—most of them comply!<br><br><br> <a href="https://www.sebe.ee/" target="_blank">SEBE</a> brand & design by <a href="https://identity.ee/" target="_blank">Identity</a>.</p>
-                <div class="agency-info">
-                    <span class="agency-label">Agency:</span>
-                    <span class="agency-name"><a href="https://7blaze.com" target="_blank">7Blaze</a></span>
-                </div>
-                <div class="tag-cloud">
-                    <span class="tag">Graphic Design</span>
-                    <span class="tag">Social Media Design</span>
-                </div>
-            </div>
+      <span class="close" onclick="closeModal('modal9')">&times;</span>
+      <div class="modal-columns">
+        <div class="modal-left"><div class="iframe-wrapper"><iframe data-src="content/content_sebe.html" frameborder="0" width="100%" height="100%" loading="lazy" title="SEBE"></iframe></div></div>
+        <div class="modal-right">
+          <h2>SEBE</h2>
+          <p>Back in 2013-2014, I worked on social media design for SEBE, Estonia's largest bus service operator, creating visuals for their social media content. A notable aspect here, at that time, Facebook only allowed 20% text on images, so every design needed to adhere to that rule. Go get your rulers, most of them comply!<br><br><br><a href="https://www.sebe.ee/" target="_blank" rel="noopener noreferrer">SEBE</a> brand & design by <a href="https://identity.ee/" target="_blank" rel="noopener noreferrer">Identity</a>.</p>
+          <div class="agency-info"><span class="agency-label">Agency:</span> <span class="agency-name"><a href="https://7blaze.com" target="_blank" rel="noopener noreferrer">7Blaze</a></span></div>
+          <div class="tag-cloud"><span class="tag">Graphic Design</span><span class="tag">Social Media Design</span></div>
         </div>
+      </div>
     </div>
-</div>
+  </div>
 
-<div id="modal10" class="modal">
+  <div id="modal10" class="modal">
     <div class="modal-content" onclick="event.stopPropagation();">
-        <span class="close" onclick="closeModal('modal10')">&times;</span>
-        <div class="modal-columns">
-            <div class="modal-left">
-                <div class="iframe-wrapper">
-                    <iframe src="content/content_taavi.html" frameborder="0" width="100%" height="100%"></iframe>
-                </div>
-            </div>
-            <div class="modal-right">
-                <h2>Taavi Peterson <br>& Üdi</h2>
-                <p>Taavi Peterson & Üdi was a very obscure Estonian indie band founded by former Estonian Pop Idol contestant Taavi Peterson and drummer Risto Piibe. Way back in 2008, I helped them get their debut album, “Down Under,” designed and printed. Come to think of it, I also did the layout and print preparation for their second album, “Selges Eesti Keeles,” in 2012.</p>
-                <div class="spacer"></div>
-                <div class="tag-cloud">
-                    <span class="tag">Graphic Design</span>
-                    <span class="tag">Print Design</span>
-                </div>
-            </div>
+      <span class="close" onclick="closeModal('modal10')">&times;</span>
+      <div class="modal-columns">
+        <div class="modal-left"><div class="iframe-wrapper"><iframe data-src="content/content_taavi.html" frameborder="0" width="100%" height="100%" loading="lazy" title="Taavi Peterson & Üdi"></iframe></div></div>
+        <div class="modal-right">
+          <h2>Taavi Peterson <br>&amp; Üdi</h2>
+          <p>Taavi Peterson & Üdi was a very obscure Estonian indie band founded by former Estonian Pop Idol contestant Taavi Peterson and drummer Risto Piibe. Way back in 2008, I helped them get their debut album, “Down Under,” designed and printed. Come to think of it, I also did the layout and print preparation for their second album, “Selges Eesti Keeles,” in 2012.</p>
+          <div class="spacer"></div>
+          <div class="tag-cloud"><span class="tag">Graphic Design</span><span class="tag">Print Design</span></div>
         </div>
+      </div>
     </div>
-</div>
+  </div>
 
-<div id="modal11" class="modal">
+  <div id="modal11" class="modal">
     <div class="modal-content" onclick="event.stopPropagation();">
-        <span class="close" onclick="closeModal('modal11')">&times;</span>
-        <div class="modal-columns">
-            <div class="modal-left">
-                <div class="iframe-wrapper">
-                    <iframe src="content/content_ungru.html" frameborder="0" width="100%" height="100%"></iframe>
-                </div>
-            </div>
-            <div class="modal-right">
-                <h2>UNGRU Resto & Külalismaja</h2>
-                <p>In 2015, I was politely asked by a friend to help design a logo for <a href="http://www.ungrumaja.ee/" target="_blank">Ungru Guesthouse and Restaurant</a> in Hiiumaa. We created the initial logo based on his sketches that same day. The image below shows the original sketch, and the one above shows some handmade lettering and the final logo, built around the brilliant <a href="https://www.exljbris.com/museo.html" target="_blank">Museo typeface</a> by Jos Buivenga. Since I never got paid for the gig, it will forever be shamelessly displayed in my portfolio.</p>
-                <div class="spacer"></div>
-                <div class="tag-cloud">
-                    <span class="tag">Logo Design</span>
-                </div>
-            </div>
+      <span class="close" onclick="closeModal('modal11')">&times;</span>
+      <div class="modal-columns">
+        <div class="modal-left"><div class="iframe-wrapper"><iframe data-src="content/content_ungru.html" frameborder="0" width="100%" height="100%" loading="lazy" title="Ungru"></iframe></div></div>
+        <div class="modal-right">
+          <h2>UNGRU Resto &amp; Külalismaja</h2>
+          <p>In 2015, I was politely asked by a friend to help design a logo for <a href="http://www.ungrumaja.ee/" target="_blank" rel="noopener noreferrer">Ungru Guesthouse and Restaurant</a> in Hiiumaa. We created the initial logo based on his sketches that same day. The image below shows the original sketch, and the one above shows some handmade lettering and the final logo, built around the brilliant <a href="https://www.exljbris.com/museo.html" target="_blank" rel="noopener noreferrer">Museo typeface</a> by Jos Buivenga. Since I never got paid for the gig, it will forever be shamelessly displayed in my portfolio.</p>
+          <div class="spacer"></div>
+          <div class="tag-cloud"><span class="tag">Logo Design</span></div>
         </div>
+      </div>
     </div>
-</div>
+  </div>
 
-<div id="modal12" class="modal">
+  <div id="modal12" class="modal">
     <div class="modal-content" onclick="event.stopPropagation();">
-        <span class="close" onclick="closeModal('modal12')">&times;</span>
-        
-        <div class="modal-columns">
-
-            <div class="modal-left">
-                <div class="iframe-wrapper">
-                    <iframe src="content/content_hoop.html" frameborder="0" width="100%" height="100%"></iframe>
-
-                </div>
-            </div>
-
-            <div class="modal-right">
-                <h2>HOOP</h2>
-                <p>Hoop was a series of events organized by the <a href="http://www.kelder.ee/" target="_blank">Kelder</a> crew from 2010 to 2011. In a bit of a surprise, the profits actually helped raise funds for club repairs. Unfortunately, the team got too busy with 9-to-5 commitments, and with the venue's demolition, we had to pull the plug on the series.</p>
-                <div class="spacer"></div>
-                <div class="tag-cloud">
-                    <span class="tag">Graphic Design</span>
-                    <span class="tag">Logo Design</span>
-                    <span class="tag">Print Design</span>
-
-                </div>
-            </div>
+      <span class="close" onclick="closeModal('modal12')">&times;</span>
+      <div class="modal-columns">
+        <div class="modal-left"><div class="iframe-wrapper"><iframe data-src="content/content_hoop.html" frameborder="0" width="100%" height="100%" loading="lazy" title="HOOP"></iframe></div></div>
+        <div class="modal-right">
+          <h2>HOOP</h2>
+          <p>Hoop was a series of events organized by the <a href="http://www.kelder.ee/" target="_blank" rel="noopener noreferrer">Kelder</a> crew from 2010 to 2011. In a bit of a surprise, the profits actually helped raise funds for club repairs. Unfortunately, the team got too busy with 9-to-5 commitments, and with the venue's demolition, we had to pull the plug on the series.</p>
+          <div class="spacer"></div>
+          <div class="tag-cloud"><span class="tag">Graphic Design</span><span class="tag">Logo Design</span><span class="tag">Print Design</span></div>
         </div>
+      </div>
     </div>
-</div>
+  </div>
 
-<div class="footer">
-    <div class="footer-left">
-        <p>Made by the tiny little fingers of Kaspar Kaur.</p>
+  <!-- Hidden future placeholders -->
+  <div id="modal13" class="modal">
+    <div class="modal-content" onclick="event.stopPropagation();">
+      <span class="close" onclick="closeModal('modal13')">&times;</span>
+      <div class="modal-columns">
+        <div class="modal-left"><div class="iframe-wrapper"><iframe data-src="content/content_alecoq.html" frameborder="0" width="100%" height="100%" loading="lazy" title="Bombay"></iframe></div></div>
+        <div class="modal-right">
+          <h2>Bombay</h2>
+          <p>Placeholder copy for Bombay. This modal is hidden for now and uses the current A.Le Coq content as a temporary stand-in until the proper case study and copy are ready.</p>
+          <div class="agency-info"><span class="agency-label">Status:</span> <span class="agency-name">Hidden placeholder</span></div>
+          <div class="tag-cloud"><span class="tag">Placeholder</span><span class="tag">Graphic Design</span></div>
+        </div>
+      </div>
     </div>
+  </div>
+
+  <div id="modal14" class="modal">
+    <div class="modal-content" onclick="event.stopPropagation();">
+      <span class="close" onclick="closeModal('modal14')">&times;</span>
+      <div class="modal-columns">
+        <div class="modal-left"><div class="iframe-wrapper"><iframe data-src="content/content_alecoq.html" frameborder="0" width="100%" height="100%" loading="lazy" title="Bigbank"></iframe></div></div>
+        <div class="modal-right">
+          <h2>Bigbank</h2>
+          <p>Placeholder copy for Bigbank. This modal is hidden for now and uses the current A.Le Coq content as a temporary stand-in until the proper case study and copy are ready.</p>
+          <div class="agency-info"><span class="agency-label">Status:</span> <span class="agency-name">Hidden placeholder</span></div>
+          <div class="tag-cloud"><span class="tag">Placeholder</span><span class="tag">Graphic Design</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="footer-left"><p>Made by the tiny little fingers of Kaspar Kaur.</p></div>
     <div class="social-icons">
-        <a href="https://www.behance.net/kazo" target="_blank"><img src="images/icns/behance.svg" alt="Behance"></a>
-        <a href="https://www.linkedin.com/in/kazotaja" target="_blank"><img src="images/icns/linkedin.svg" alt="LinkedIn"></a>
-        <a href="https://www.facebook.com/kazotaja" target="_blank"><img src="images/icns/facebook.svg" alt="Facebook"></a>
-        <a href="https://www.instagram.com/3dkaspar" target="_blank"><img src="images/icns/instagram.svg" alt="Instagram"></a>
-        <a href="https://kazo.tumblr.com" target="_blank"><img src="images/icns/tumblr.svg" alt="Tumblr"></a>
-        <a href="https://vimeo.com/kazo" target="_blank"><img src="images/icns/vimeo.svg" alt="Vimeo"></a>
-        <a href="http://www.youtube.com/@kazo" target="_blank"><img src="images/icns/youtube.svg" alt="YouTube"></a>
-        <a href="https://www.flickr.com/photos/61602112@N00" target="_blank"><img src="images/icns/flickr.svg" alt="Flickr"></a>
+      <a href="https://www.behance.net/kazo" target="_blank" rel="noopener noreferrer"><img src="images/icns/behance.svg" alt="Behance" loading="lazy" decoding="async"></a>
+      <a href="https://www.linkedin.com/in/kazotaja" target="_blank" rel="noopener noreferrer"><img src="images/icns/linkedin.svg" alt="LinkedIn" loading="lazy" decoding="async"></a>
+      <a href="https://www.facebook.com/kazotaja" target="_blank" rel="noopener noreferrer"><img src="images/icns/facebook.svg" alt="Facebook" loading="lazy" decoding="async"></a>
+      <a href="https://www.instagram.com/3dkaspar" target="_blank" rel="noopener noreferrer"><img src="images/icns/instagram.svg" alt="Instagram" loading="lazy" decoding="async"></a>
+      <a href="https://kazo.tumblr.com" target="_blank" rel="noopener noreferrer"><img src="images/icns/tumblr.svg" alt="Tumblr" loading="lazy" decoding="async"></a>
+      <a href="https://vimeo.com/kazo" target="_blank" rel="noopener noreferrer"><img src="images/icns/vimeo.svg" alt="Vimeo" loading="lazy" decoding="async"></a>
+      <a href="https://www.youtube.com/@kazo" target="_blank" rel="noopener noreferrer"><img src="images/icns/youtube.svg" alt="YouTube" loading="lazy" decoding="async"></a>
+      <a href="https://www.flickr.com/photos/61602112@N00" target="_blank" rel="noopener noreferrer"><img src="images/icns/flickr.svg" alt="Flickr" loading="lazy" decoding="async"></a>
     </div>
-</div>
+  </div>
 
-<script defer src="https://cloud.umami.is/script.js" data-website-id="6d967e30-1a55-4e41-97a5-361e710a921a"></script>
-
+  <script defer src="https://cloud.umami.is/script.js" data-website-id="6d967e30-1a55-4e41-97a5-361e710a921a"></script>
 </body>
-
 </html>
