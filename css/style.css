@@ -146,12 +146,13 @@ a:hover {
 
 /* Hero */
 .header {
-  position: relative;
+  position: fixed;
+  inset: 0;
   width: 100%;
   height: 100vh;
-  min-height: 100vh;
   overflow: hidden;
   z-index: 1;
+  pointer-events: none;
 }
 
 .header .hero-video,
@@ -232,7 +233,7 @@ top:78px;
   position: relative;
   z-index: 4;
   width: min(1100px, 92%);
-  margin: 92px auto 140px;
+  margin: 140px auto 140px;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: var(--gap-3);
@@ -244,7 +245,7 @@ top:78px;
   overflow: hidden;
   opacity: 0;
   transform: translateY(36px);
-  animation: tileIn 0.9s cubic-bezier(.22, .8, .2, 1) forwards;
+  animation: tileIn 1.5s cubic-bezier(.22, .8, .2, 1) forwards;
 }
 
 .portfolio-item:nth-child(1) { animation-delay: 0.10s; }
