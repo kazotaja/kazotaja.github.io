@@ -3,36 +3,96 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Coming Soon</title>
+    <title>Bombay</title>
+    <link rel="stylesheet" href="style_content.css">
     <style>
-        /* Reset and general settings */
-        html, body {
+        /* Ensures grid container occupies available space */
+        body {
+            overflow-x: hidden; /* Prevents horizontal scroll */
             margin: 0;
             padding: 0;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-family: Arial, sans-serif;
-            background-color: #1E1E1E;
-            color: #ffffff;
-            overflow: hidden;
         }
 
-        /* Coming Soon Text Styling */
-        h1 {
-            font-size: 8vw; /* Responsive font size */
-            font-weight: bold;
-            text-align: center;
-            margin: 0;
-            color: #ffffff; /* Bright color for emphasis */
-            font-family: "Poppins", sans-serif;
-            font-weight: 800;
+        .media-grid {
+            display: grid;
+            grid-template-rows: auto; /* Automatically size rows based on content */
+            gap: 10px;
+            width: 100%;
+            max-width: 95vw; /* Restricts width to 95% of viewport */
+            margin: 0 auto; /* Centers grid horizontally */
+        }
+        
+        .content-wrap {
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 40px 28px;
+            display: grid;
+            gap: 24px;
+        }
+        
+        /* Row styles for full-width and two-column layout */
+        .row-full {
+            grid-column: 1 / -1; /* Span full-width for bombay_head.png */
+        }
+        
+        /* Sets two equal-width columns for specific rows */
+        .row-half {
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* Two equal-width columns */
+            gap: 10px;
+        }
+        
+        /* Ensures video maintains responsiveness */
+        .media-grid video {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
         }
     </style>
 </head>
 <body>
-    <h1>COMING SOON</h1>
+
+    <div class="media-grid">
+         <div class="row-full">
+            <video autoplay muted loop playsinline>
+                <source src="videos/bombay/bombay_yolo_logo.webm" type="video/mp4" width="100%"alt="Bombay and Yolo.com logos">
+                Your browser does not support the video tag.
+            </video>
+             <!-- <img src="images/bombay/bombay_yolo_logo.jpg" alt="Bombay and Yolo.com logos"> -->
+        </div>
+
+        <div class="row-half">
+            <video autoplay muted loop playsinline>
+                <source src="videos/bombay/bombay_2.mp4" type="video/mp4" alt="Bombay Valentines Day video banner">
+                Your browser does not support the video tag.
+            </video>
+            <img src="images/bombay/bombay_3.jpg" alt="Bombay Sõbrapäev">
+        </div>
+        
+                <div class="row-full">
+            <img src="images/bombay/bombay_4.jpg" alt="Bombay Lunar New Year & Rolex Giveaway" width="100%">
+        </div>
+
+        <!-- Row 3: 50% width images -->
+        <div class="row-half">
+            <img src="images/bombay/bombay_5.jpg" alt="Friday Night Fever Tournament Series">
+             <video autoplay muted loop playsinline>
+                <source src="videos/bombay/bombay_6_720.mp4" type="video/mp4" alt="Rogue'26 - Bombay NYE Party video ads">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+
+        <div class="row-full">
+            <img src="images/bombay/bombay_7.jpg" alt="Inner Circle Sessions: Carlton J. Smith">
+        </div>
+        
+        <div class="row-full">
+           <video autoplay muted loop playsinline>
+                <source src="videos/bombay/bombay_8.mp4" type="video/mp4" alt="Rogue'26 - Bombay NYE Party video ads">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </div>
+
 </body>
 </html>

@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const modals = Array.from(document.querySelectorAll('.modal'));
+  const modals = Array.from(document.querySelectorAll('.modal:not(.hidden):not(#cv-modal)'));
   const overlay = document.getElementById('modal-overlay');
   const body = document.body;
   const video = document.getElementById('headerVideo');
@@ -189,7 +189,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // Lazy-load hero video after page load / idle
+  // Lazy-load hero video
   function loadHeroVideo() {
     if (!video || video.dataset.loaded === 'true') return;
 
@@ -221,9 +221,46 @@ document.addEventListener('DOMContentLoaded', () => {
     video.load();
   }
 
+  // Preload iframes in priority order
+  function preloadIframesInOrder() {
+    const order = [
+      'modal13', // bombay
+      'modal14', // bigbank
+      'modal3',  // redbull
+      'modal4',  // lidl
+      'modal1',  // lexus
+      'modal2'   // alecoq
+    ];
+
+    let delay = 0;
+
+    order.forEach(id => {
+      const modal = document.getElementById(id);
+      if (!modal) return;
+
+      const frames = modal.querySelectorAll('iframe[data-src]');
+
+      frames.forEach(frame => {
+        setTimeout(() => {
+          if (frame.src || !frame.dataset.src) return;
+          frame.src = frame.dataset.src;
+        }, delay);
+
+        delay += 400;
+      });
+    });
+  }
+
+  // Chain loading: hero first, then iframe preload
   if ('requestIdleCallback' in window) {
-    requestIdleCallback(loadHeroVideo, { timeout: 1500 });
+    requestIdleCallback(() => {
+      loadHeroVideo();
+      setTimeout(preloadIframesInOrder, 1500);
+    }, { timeout: 2000 });
   } else {
-    window.addEventListener('load', loadHeroVideo, { once: true });
+    window.addEventListener('load', () => {
+      loadHeroVideo();
+      setTimeout(preloadIframesInOrder, 2000);
+    }, { once: true });
   }
 });
